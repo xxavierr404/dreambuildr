@@ -10,20 +10,11 @@ public class Motherboard {
 
     public Motherboard () {}
 
-    public Motherboard (RAMType ramType,
-                        int ramSlotsCount,
-                        PlatformType platformType,
-                        SocketType socketType) {
-        this.ramType = ramType;
-        this.ramSlotsCount = ramSlotsCount;
-        this.platformType = platformType;
-        this.socketType = socketType;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
     private RAMType ramType;
     private int ramSlotsCount;
     private PlatformType platformType;
@@ -67,5 +58,13 @@ public class Motherboard {
 
     public void setSocketType(SocketType socketType) {
         this.socketType = socketType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
