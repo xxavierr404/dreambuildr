@@ -6,27 +6,12 @@ import com.xxavierr404.dreambuildr.misc.enums.SocketType;
 import jakarta.persistence.*;
 
 @Entity
-public class Motherboard {
-
+public class Motherboard extends Item {
     public Motherboard () {}
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String name;
     private RAMType ramType;
     private int ramSlotsCount;
     private PlatformType platformType;
     private SocketType socketType;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public RAMType getRamType() {
         return ramType;
@@ -58,13 +43,5 @@ public class Motherboard {
 
     public void setSocketType(SocketType socketType) {
         this.socketType = socketType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
