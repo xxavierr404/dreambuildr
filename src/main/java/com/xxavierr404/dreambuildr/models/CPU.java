@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 @Entity
 public class CPU {
     public CPU () {}
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
