@@ -89,4 +89,9 @@ public class CatalogueController {
         catalogueService.addNewVideocard(videocard);
         return ResponseEntity.ok("Success");
     }
+
+    @GetMapping
+    public List<Item> getCatalogue(Long start, Long end) {
+        return catalogueService.getAllItems(start, end);
+    }
 }

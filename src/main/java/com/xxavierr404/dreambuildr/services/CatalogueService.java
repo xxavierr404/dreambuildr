@@ -5,6 +5,7 @@ import com.xxavierr404.dreambuildr.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -77,5 +78,16 @@ public class CatalogueService {
 
     public void addNewVideocard(Videocard videocard) {
         videocardRepository.save(videocard);
+    }
+
+    public List<Item> getAllItems(Long start, Long end) {
+        var result = new LinkedList<Item>();
+        result.addAll(getMotherboardsByIdBetween(start, end));
+        result.addAll(getCPUsByIdBetween(start, end));
+        result.addAll(getRAMsByIdBetween(start, end));
+        result.addAll(getPUsByIdBetween(start, end));
+        result.addAll(getDrivesByIdBetween(start, end));
+        result.addAll(getVideocardsByIdBetween(start, end));
+        return result;
     }
 }
