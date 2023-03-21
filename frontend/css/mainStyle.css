@@ -22,7 +22,13 @@
 }
 
 .builder-bar-tile {
-    @apply bg-gradient-to-b from-cyan-600 to-lime-200 shadow-blue-400 shadow-xl w-1/6 flex flex-row justify-center
+    @apply bg-gradient-to-b from-cyan-600 to-lime-200 shadow-blue-400
+    shadow-xl w-1/6 flex flex-row justify-center
+    transition-transform duration-300
+}
+
+.builder-bar-tile:hover {
+    @apply scale-110
 }
 
 .builder-bar-tile-title {
@@ -31,4 +37,20 @@
 
 .builder-bar-tile-title-text {
     @apply text-xl text-white font-medium text-center font-title font-bold select-none pl-1
+}
+
+.config-grid {
+    @apply grid grid-cols-3 w-full h-full bg-gradient-to-b from-cyan-600 to-blue-700
+}
+
+.config-grid-column {
+    @apply flex flex-col
+}
+
+.config-grid-column div {
+    @apply h-32
+}
+
+.config-grid-component-text {
+    @apply flex flex-col items-center justify-center text-white font-light drop-shadow-2xl shadow-white
 }
