@@ -1,11 +1,12 @@
 package com.xxavierr404.dreambuildr.models;
 
 import com.xxavierr404.dreambuildr.misc.enums.DriveType;
+import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 
 /**
  * Сущность - запоминающее устройство
  */
-public class Drive extends Item {
+public class Drive extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
      */
@@ -50,5 +51,10 @@ public class Drive extends Item {
      */
     public void setGigabytes(Integer gigabytes) {
         this.gigabytes = gigabytes;
+    }
+
+    @Override
+    public void checkCompatibility(PCConfiguration configuration) {
+        // TODO: Connection interface check
     }
 }

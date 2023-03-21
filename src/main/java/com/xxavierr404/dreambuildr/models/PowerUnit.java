@@ -1,9 +1,11 @@
 package com.xxavierr404.dreambuildr.models;
 
+import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
+
 /**
  * Сущность - блок питания
  */
-public class PowerUnit extends Item {
+public class PowerUnit extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
      */
@@ -28,5 +30,10 @@ public class PowerUnit extends Item {
      */
     public void setVoltage(Integer voltage) {
         this.voltage = voltage;
+    }
+
+    @Override
+    public void checkCompatibility(PCConfiguration configuration) {
+        // TODO: Check if power is enough to power up the videocard
     }
 }

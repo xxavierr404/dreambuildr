@@ -1,6 +1,11 @@
 package com.xxavierr404.dreambuildr.misc.objects;
 
+import com.xxavierr404.dreambuildr.misc.exceptions.ComponentNotInstalledException;
+import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.models.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class PCConfiguration {
     private Motherboard motherboard;
@@ -9,7 +14,6 @@ public class PCConfiguration {
     private PowerUnit powerUnit;
     private RAM ram;
     private Videocard videocard;
-    private String incompatibilityCause;
 
     public PCConfiguration() { }
 
@@ -23,59 +27,27 @@ public class PCConfiguration {
     }
 
     public boolean isCompatible() {
+        var components = Map.of(
+                Map.entry("CPU", cpu),
+                Map.entry("RAM", ram),
+                Map.entry("Drive", drive),
+                Map.entry("Power unit", powerUnit),
+                Map.entry("Videocard", videocard),
+                Map.entry("Motherboard", motherboard)
+        );
 
-    }
-
-    private boolean hasCPU() {
-        if (cpu == null) {
-            incompatibilityCause = "CPU is not selected";
+        for (var entry: components.entrySet()) {
+            if (entry.getValue() == null) {
+                throw new ComponentNotInstalledException(String.format("%s is not selected", entry.getKey()));
+            }
         }
-        return cpu != null;
-    }
 
-    private boolean hasRam() {
-        if (ram == null) {
-            incompatibilityCause = "RAM is not selected";
+        var checkables = new Checkable[] {cpu, ram, drive, powerUnit, videocard};
+        for (var checkable: checkables) {
+            checkable.checkCompatibility(this);
         }
-        return ram != null;
-    }
 
-    private boolean hasMotherboard() {
-        if (motherboard == null) {
-            incompatibilityCause = "Motherboard is not selected";
-        }
-        return motherboard != null;
-    }
-
-    private boolean hasDrive() {
-        if (drive == null) {
-            incompatibilityCause = "Drive is not selected";
-        }
-        return drive != null;
-    }
-
-    private boolean isCPUCompatible() {
-        var result = cpu.getSocketType().equals(motherboard.getSocketType());
-        if (!result) {
-            incompatibilityCause = "CPU is not compatible with this motherboard";
-        }
-        return result;
-    }
-
-    private boolean isRAMCompatible() {
-        var result = ram.getType().equals(motherboard.getRamType());
-        if (!result) {
-            incompatibilityCause = "RAM is not compatible with this motherboard";
-        }
-        return result;
-    }
-
-    private boolean isDriveCompatible() {
-        var result = drive.getGigabytes() < 150;
-        if (!result) {
-            incompatibilityCause = "WARNING: HDD/SSD might be too small";
-        }
-        return result;
+        return true;
     }
 
     public Motherboard getMotherboard() {

@@ -1,16 +1,15 @@
 package com.xxavierr404.dreambuildr.models;
 
 import com.xxavierr404.dreambuildr.misc.enums.SocketType;
+import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
+import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 /**
  * Сущность - процессор
  */
 @Entity
-public class CPU extends Item {
+public class CPU extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
      */
@@ -54,5 +53,12 @@ public class CPU extends Item {
      */
     public void setSocketType(SocketType socketType) {
         this.socketType = socketType;
+    }
+
+    @Override
+    public void checkCompatibility(PCConfiguration configuration) {
+        if (!configuration.getMotherboard().getSocketType().equals(socketType)) {
+            throw new ConfigurationIsIncompatibleException("CPU does not match with socket on motherboard");
+        }
     }
 }

@@ -1,11 +1,12 @@
 package com.xxavierr404.dreambuildr.models;
 
 import com.xxavierr404.dreambuildr.misc.enums.RAMType;
+import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 
 /**
  * Сущность - видеокарта
  */
-public class Videocard extends Item {
+public class Videocard extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
      */
@@ -70,5 +71,10 @@ public class Videocard extends Item {
      */
     public void setFrequency(Integer frequency) {
         this.frequency = frequency;
+    }
+
+    @Override
+    public void checkCompatibility(PCConfiguration configuration) {
+        // TODO: Check if PCI-E interface is compatible
     }
 }

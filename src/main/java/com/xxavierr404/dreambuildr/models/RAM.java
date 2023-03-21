@@ -1,13 +1,15 @@
 package com.xxavierr404.dreambuildr.models;
 
 import com.xxavierr404.dreambuildr.misc.enums.RAMType;
+import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
+import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 import jakarta.persistence.Entity;
 
 /**
  * Сущность - оперативная память
  */
 @Entity
-public class RAM extends Item {
+public class RAM extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
      */
@@ -72,5 +74,12 @@ public class RAM extends Item {
      */
     public void setGigabytes(Integer gigabytes) {
         this.gigabytes = gigabytes;
+    }
+
+    @Override
+    public void checkCompatibility(PCConfiguration configuration) {
+        if (!configuration.getMotherboard().getRamType().equals(type)) {
+            throw new ConfigurationIsIncompatibleException("RAM type doesn't match with motherboard");
+        }
     }
 }
