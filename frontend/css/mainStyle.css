@@ -85,7 +85,8 @@
 }
 
 .config-analysis-result-subtext {
-    @apply text-white font-title text-2xl text-center
+    @apply text-white font-title text-xl text-center
+    md:text-2xl
 }
 
 .store-button {
@@ -95,4 +96,12 @@
 
 .store-button:hover {
     @apply scale-105 ring-4 animate-pulse
+}
+
+.catalogue-body {
+    @apply flex flex-col w-full h-screen bg-gradient-to-b from-blue-600 to-cyan-300 items-center justify-center
+}
+
+.catalogue-grid {
+    @apply grid grid-cols-4 gap-4 w-5/6 h-full m-10
 }
