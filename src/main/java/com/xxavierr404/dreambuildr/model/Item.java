@@ -1,4 +1,4 @@
-package com.xxavierr404.dreambuildr.models;
+package com.xxavierr404.dreambuildr.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

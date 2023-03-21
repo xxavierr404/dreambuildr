@@ -1,4 +1,4 @@
-package com.xxavierr404.dreambuildr.models;
+package com.xxavierr404.dreambuildr.model;
 
 import com.xxavierr404.dreambuildr.misc.enums.DriveType;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;

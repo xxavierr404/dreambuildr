@@ -1,10 +1,8 @@
 package com.xxavierr404.dreambuildr.misc.objects;
 
 import com.xxavierr404.dreambuildr.misc.exceptions.ComponentNotInstalledException;
-import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
-import com.xxavierr404.dreambuildr.models.*;
+import com.xxavierr404.dreambuildr.model.*;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class PCConfiguration {

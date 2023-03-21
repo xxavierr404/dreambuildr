@@ -1,6 +1,6 @@
 package com.xxavierr404.dreambuildr.repositories;
 
-import com.xxavierr404.dreambuildr.models.RAM;
+import com.xxavierr404.dreambuildr.model.RAM;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

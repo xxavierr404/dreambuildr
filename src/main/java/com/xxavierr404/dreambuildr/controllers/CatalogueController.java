@@ -1,6 +1,6 @@
 package com.xxavierr404.dreambuildr.controllers;
 
-import com.xxavierr404.dreambuildr.models.*;
+import com.xxavierr404.dreambuildr.model.*;
 import com.xxavierr404.dreambuildr.services.CatalogueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
