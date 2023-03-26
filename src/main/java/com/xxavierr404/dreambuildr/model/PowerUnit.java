@@ -1,10 +1,14 @@
 package com.xxavierr404.dreambuildr.model;
 
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * Сущность - блок питания
  */
+@Entity
+@Table(name = "powerunit")
 public class PowerUnit extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта

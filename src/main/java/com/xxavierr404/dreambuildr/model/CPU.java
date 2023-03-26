@@ -4,11 +4,13 @@ import com.xxavierr404.dreambuildr.misc.enums.SocketType;
 import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * Сущность - процессор
  */
 @Entity
+@Table(name = "cpu")
 public class CPU extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта

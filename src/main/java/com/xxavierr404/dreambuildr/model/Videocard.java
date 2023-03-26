@@ -2,10 +2,15 @@ package com.xxavierr404.dreambuildr.model;
 
 import com.xxavierr404.dreambuildr.misc.enums.RAMType;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * Сущность - видеокарта
  */
+@Entity
+@Table(name = "videocard")
 public class Videocard extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
@@ -15,10 +20,12 @@ public class Videocard extends Item implements Checkable {
     /**
      * Поле - объем видеопамяти
      */
+
     private Integer vRam;
     /**
      * Поле - тип видеопамяти
      */
+
     private RAMType vRamType;
     /**
      * Поле - частота

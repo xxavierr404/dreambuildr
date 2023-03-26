@@ -2,10 +2,14 @@ package com.xxavierr404.dreambuildr.model;
 
 import com.xxavierr404.dreambuildr.misc.enums.DriveType;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * Сущность - запоминающее устройство
  */
+@Entity
+@Table(name = "drive")
 public class Drive extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта

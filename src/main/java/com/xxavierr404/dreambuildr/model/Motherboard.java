@@ -9,6 +9,7 @@ import jakarta.persistence.*;
  * Сущность - материнская плата
  */
 @Entity
+@Table(name = "motherboard")
 public class Motherboard extends Item {
     /**
      * Конструктор - создание нового объекта

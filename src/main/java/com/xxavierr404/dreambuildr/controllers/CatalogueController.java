@@ -34,10 +34,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список материнских плат
      */
-    @GetMapping("/motherboards")
+    @GetMapping("/motherboards/getBunch")
     public List<Motherboard> getMotherboards(@RequestParam("start") Long start,
                                              @RequestParam("end") Long end) {
         return catalogueService.getMotherboardsByIdBetween(start, end);
+    }
+
+    @GetMapping("/motherboards/getOne")
+    public Motherboard getMotherboard(@RequestParam("id") Long id) {
+        return catalogueService.getMotherboard(id);
     }
 
     /**
@@ -57,10 +62,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список процессоров
      */
-    @GetMapping("/cpus")
+    @GetMapping("/cpus/getBunch")
     public List<CPU> getCPUs(@RequestParam("start") Long start,
                              @RequestParam("end") Long end) {
         return catalogueService.getCPUsByIdBetween(start, end);
+    }
+
+    @GetMapping("/cpus/getOne")
+    public CPU getCPU(@RequestParam("id") Long id) {
+        return catalogueService.getCPU(id);
     }
 
     /**
@@ -80,10 +90,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список модулей оперативной памяти
      */
-    @GetMapping("/rams")
+    @GetMapping("/rams/getBunch")
     public List<RAM> getRAMs(@RequestParam("start") Long start,
                              @RequestParam("end") Long end) {
         return catalogueService.getRAMsByIdBetween(start, end);
+    }
+
+    @GetMapping("/rams/getOne")
+    public RAM getRAM(@RequestParam("id") Long id) {
+        return catalogueService.getRam(id);
     }
 
     /**
@@ -103,10 +118,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список запоминающих устройств
      */
-    @GetMapping("/drives")
+    @GetMapping("/drives/getBunch")
     public List<Drive> getDrives(@RequestParam("start") Long start,
                                  @RequestParam("end") Long end) {
         return catalogueService.getDrivesByIdBetween(start, end);
+    }
+
+    @GetMapping("/drives/getOne")
+    public Drive getDrive(@RequestParam("id") Long id) {
+        return catalogueService.getDrive(id);
     }
 
     /**
@@ -126,10 +146,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список блоков питания
      */
-    @GetMapping("/powerunits")
+    @GetMapping("/powerunits/getBunch")
     public List<PowerUnit> getPowerUnits(@RequestParam("start") Long start,
                                    @RequestParam("end") Long end) {
         return catalogueService.getPowerUnitsByIdBetween(start, end);
+    }
+
+    @GetMapping("/powerunits/getOne")
+    public PowerUnit getPowerUnit(@RequestParam("id") Long id) {
+        return catalogueService.getPowerUnit(id);
     }
 
     /**
@@ -149,10 +174,15 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Список видеокарт
      */
-    @GetMapping("/videocards")
+    @GetMapping("/videocards/getBunch")
     public List<Videocard> getVideocards(@RequestParam("start") Long start,
                              @RequestParam("end") Long end) {
         return catalogueService.getVideocardsByIdBetween(start, end);
+    }
+
+    @GetMapping("/videocards/getOne")
+    public Videocard getVideocard(@RequestParam("id") Long id) {
+        return catalogueService.getVideocard(id);
     }
 
     /**
@@ -172,7 +202,7 @@ public class CatalogueController {
      * @param end - Правая граница
      * @return Списов товаров
      */
-    @GetMapping
+    @GetMapping("/")
     public List<Item> getCatalogue(Long start, Long end) {
         return catalogueService.getAllItems(start, end);
     }

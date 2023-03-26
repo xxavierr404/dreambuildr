@@ -1,14 +1,11 @@
 package com.xxavierr404.dreambuildr.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 /**
  * Сущность - предмет
  */
-@Entity
+@MappedSuperclass
 public class Item {
     /**
      * Поле - id

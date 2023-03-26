@@ -4,11 +4,13 @@ import com.xxavierr404.dreambuildr.misc.enums.RAMType;
 import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 /**
  * Сущность - оперативная память
  */
 @Entity
+@Table(name = "ram")
 public class RAM extends Item implements Checkable {
     /**
      * Конструктор - создание нового объекта
