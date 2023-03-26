@@ -40,6 +40,8 @@ public class CatalogueService {
         motherboardRepository.save(motherboard);
     }
 
+    public Motherboard getMotherboard(Long id) { return motherboardRepository.findById(id).orElseThrow(); }
+
     public List<CPU> getCPUsByIdBetween(Long start, Long end) {
         return cpuRepository.findAllByIdBetween(start, end);
     }
@@ -47,6 +49,8 @@ public class CatalogueService {
     public void addNewCPU(CPU cpu) {
         cpuRepository.save(cpu);
     }
+
+    public CPU getCPU(Long id) { return cpuRepository.findById(id).orElseThrow(); }
 
     public List<RAM> getRAMsByIdBetween(Long start, Long end) {
         return ramRepository.findAllByIdBetween(start, end);
@@ -56,6 +60,8 @@ public class CatalogueService {
         ramRepository.save(ram);
     }
 
+    public RAM getRam(Long id) { return ramRepository.findById(id).orElseThrow(); }
+
     public List<Drive> getDrivesByIdBetween(Long start, Long end) {
         return driveRepository.findAllByIdBetween(start, end);
     }
@@ -64,13 +70,17 @@ public class CatalogueService {
         driveRepository.save(drive);
     }
 
-    public List<PowerUnit> getPUsByIdBetween(Long start, Long end) {
+    public Drive getDrive(Long id) { return driveRepository.findById(id).orElseThrow(); }
+
+    public List<PowerUnit> getPowerUnitsByIdBetween(Long start, Long end) {
         return powerUnitRepository.findAllByIdBetween(start, end);
     }
 
     public void addNewPowerUnit(PowerUnit powerUnit) {
         powerUnitRepository.save(powerUnit);
     }
+
+    public PowerUnit getPowerUnit(Long id) { return powerUnitRepository.findById(id).orElseThrow(); }
 
     public List<Videocard> getVideocardsByIdBetween(Long start, Long end) {
         return videocardRepository.findAllByIdBetween(start, end);
@@ -80,12 +90,14 @@ public class CatalogueService {
         videocardRepository.save(videocard);
     }
 
+    public Videocard getVideocard(Long id) { return videocardRepository.findById(id).orElseThrow(); }
+
     public List<Item> getAllItems(Long start, Long end) {
         var result = new LinkedList<Item>();
         result.addAll(getMotherboardsByIdBetween(start, end));
         result.addAll(getCPUsByIdBetween(start, end));
         result.addAll(getRAMsByIdBetween(start, end));
-        result.addAll(getPUsByIdBetween(start, end));
+        result.addAll(getPowerUnitsByIdBetween(start, end));
         result.addAll(getDrivesByIdBetween(start, end));
         result.addAll(getVideocardsByIdBetween(start, end));
         return result;

@@ -129,7 +129,7 @@ public class CatalogueController {
     @GetMapping("/powerunits")
     public List<PowerUnit> getPowerUnits(@RequestParam("start") Long start,
                                    @RequestParam("end") Long end) {
-        return catalogueService.getPUsByIdBetween(start, end);
+        return catalogueService.getPowerUnitsByIdBetween(start, end);
     }
 
     /**
