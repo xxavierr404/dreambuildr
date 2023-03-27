@@ -10,34 +10,41 @@ import RAM from "./types/pcComponents/RAM";
 import Videocard from "./types/pcComponents/Videocard";
 import ConfigAnalysisResultBlock from "./components/ConfigAnalysisResultBlock";
 import {ConfigurationDTO} from "./types/ConfigurationDTO";
-import {Configuration} from "./types/Configuration";
 import getItem from "./utils/GetItem";
 import {Dispatch, useEffect, useState} from "react";
 
-function loadConfiguration(configDTO: ConfigurationDTO, config: Configuration, setConfig: Dispatch<any>) {
-    getItem(configDTO.cpuId, 'cpu')
-        .then((value) => setConfig({...config, cpu: value as CPU}));
-    getItem(configDTO.motherboardId, 'motherboard')
-        .then((value) => setConfig({...config, motherboard: value as Motherboard}));
-    getItem(configDTO.driveId, 'drive')
-        .then((value) => setConfig({...config, drive: value as Drive}));
-    getItem(configDTO.ramId, 'ram')
-        .then((value) => setConfig({...config, ram: value as RAM}));
-    getItem(configDTO.powerUnitId, 'powerunit')
-        .then((value) => setConfig({...config, powerUnit: value as PowerUnit}));
-    getItem(configDTO.videocardId, 'videocard')
-        .then((value) => setConfig({...config, videocard: value as Videocard}));
+async function loadConfiguration(configDTO: ConfigurationDTO, dispatchers: ConfigDispatchers) {
+    await getItem(configDTO.cpuId, 'cpu')
+        .then((value) => dispatchers.setCpu(value as CPU));
+    await getItem(configDTO.motherboardId, 'motherboard')
+        .then((value) => dispatchers.setMotherboard(value as Motherboard));
+    await getItem(configDTO.driveId, 'drive')
+        .then((value) => dispatchers.setDrive(value as Drive));
+    await getItem(configDTO.ramId, 'ram')
+        .then((value) => dispatchers.setRam(value as RAM));
+    await getItem(configDTO.powerUnitId, 'powerunit')
+        .then((value) => dispatchers.setPowerUnit(value as PowerUnit));
+    await getItem(configDTO.videocardId, 'videocard')
+        .then((value) => dispatchers.setVideocard(value as Videocard));
+}
+
+type ConfigDispatchers = {
+    setCpu: Dispatch<any>,
+    setRam: Dispatch<any>,
+    setMotherboard: Dispatch<any>,
+    setDrive: Dispatch<any>,
+    setPowerUnit: Dispatch<any>,
+    setVideocard: Dispatch<any>,
 }
 
 function App() {
-    let [config, setConfig] = useState({
-        cpu: null,
-        motherboard: null,
-        drive: null,
-        ram: null,
-        powerUnit: null,
-        videocard: null,
-    });
+    let [cpu, setCpu] = useState(null);
+    let [ram, setRam] = useState(null);
+    let [motherboard, setMotherboard] = useState(null);
+    let [drive, setDrive] = useState(null);
+    let [powerUnit, setPowerUnit] = useState(null);
+    let [videocard, setVideocard] = useState(null);
+
 
     let configDTO: ConfigurationDTO = {
         motherboardId: BigInt(2),
@@ -49,19 +56,26 @@ function App() {
     }
 
     useEffect(() => {
-        loadConfiguration(configDTO, config, setConfig);
+        loadConfiguration(configDTO, {
+            setCpu: setCpu,
+            setRam: setRam,
+            setDrive: setDrive,
+            setVideocard: setVideocard,
+            setPowerUnit: setPowerUnit,
+            setMotherboard: setMotherboard
+        });
     }, []);
 
   return (
     <div className="App">
         <header className="header-flex accent-gradient title-text">dreambuildr</header>
         <ComponentBar></ComponentBar>
-        <ConfigurerGrid cpu={config.cpu}
-                        motherboard={config.motherboard}
-                        ram={config.ram}
-                        drive={config.drive}
-                        powerUnit={config.powerUnit}
-                        videocard={config.videocard}></ConfigurerGrid>
+        <ConfigurerGrid cpu={cpu}
+                        motherboard={motherboard}
+                        ram={ram}
+                        drive={drive}
+                        powerUnit={powerUnit}
+                        videocard={videocard}></ConfigurerGrid>
         <ConfigAnalysisResultBlock></ConfigAnalysisResultBlock>
     </div>
   );
