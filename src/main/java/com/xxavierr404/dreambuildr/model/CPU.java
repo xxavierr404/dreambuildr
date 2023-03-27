@@ -1,5 +1,6 @@
 package com.xxavierr404.dreambuildr.model;
 
+import com.xxavierr404.dreambuildr.misc.enums.CompatibilityType;
 import com.xxavierr404.dreambuildr.misc.enums.SocketType;
 import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
@@ -60,7 +61,7 @@ public class CPU extends Item implements Checkable {
     @Override
     public void checkCompatibility(PCConfiguration configuration) {
         if (!configuration.getMotherboard().getSocketType().equals(socketType)) {
-            throw new ConfigurationIsIncompatibleException("CPU does not match with socket on motherboard");
+            throw new ConfigurationIsIncompatibleException(CompatibilityType.CPU_SOCKET_MISMATCH);
         }
     }
 }

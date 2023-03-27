@@ -12,6 +12,7 @@ import ConfigAnalysisResultBlock from "./components/ConfigAnalysisResultBlock";
 import {ConfigurationDTO} from "./types/ConfigurationDTO";
 import getItem from "./utils/GetItem";
 import {Dispatch, useEffect, useState} from "react";
+import {Configuration} from "./types/Configuration";
 
 async function loadConfiguration(configDTO: ConfigurationDTO, dispatchers: ConfigDispatchers) {
     await getItem(configDTO.cpuId, 'cpu')
@@ -47,12 +48,12 @@ function App() {
 
 
     let configDTO: ConfigurationDTO = {
-        motherboardId: BigInt(2),
-        driveId: BigInt(1),
-        cpuId: BigInt(1),
-        ramId: BigInt(1),
-        powerUnitId: BigInt(1),
-        videocardId: BigInt(1),
+        motherboardId: 2,
+        driveId: 1,
+        cpuId: 1,
+        ramId: 1,
+        powerUnitId: 1,
+        videocardId: 1,
     }
 
     useEffect(() => {
@@ -66,16 +67,20 @@ function App() {
         });
     }, []);
 
+    let config: Configuration = {
+        cpu: cpu,
+        ram: ram,
+        drive: drive,
+        motherboard: motherboard,
+        powerUnit: powerUnit,
+        videocard: videocard
+    }
+
   return (
     <div className="App">
         <header className="header-flex accent-gradient title-text">dreambuildr</header>
-        <ComponentBar></ComponentBar>
-        <ConfigurerGrid cpu={cpu}
-                        motherboard={motherboard}
-                        ram={ram}
-                        drive={drive}
-                        powerUnit={powerUnit}
-                        videocard={videocard}></ConfigurerGrid>
+        <ComponentBar config={configDTO}></ComponentBar>
+        <ConfigurerGrid config={config}></ConfigurerGrid>
         <ConfigAnalysisResultBlock></ConfigAnalysisResultBlock>
     </div>
   );

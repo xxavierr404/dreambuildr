@@ -1,5 +1,6 @@
 package com.xxavierr404.dreambuildr.model;
 
+import com.xxavierr404.dreambuildr.misc.enums.CompatibilityType;
 import com.xxavierr404.dreambuildr.misc.enums.RAMType;
 import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.misc.objects.PCConfiguration;
@@ -81,7 +82,7 @@ public class RAM extends Item implements Checkable {
     @Override
     public void checkCompatibility(PCConfiguration configuration) {
         if (!configuration.getMotherboard().getRamType().equals(type)) {
-            throw new ConfigurationIsIncompatibleException("RAM type doesn't match with motherboard");
+            throw new ConfigurationIsIncompatibleException(CompatibilityType.RAM_SOCKET_MISMATCH);
         }
     }
 }

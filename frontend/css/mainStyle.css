@@ -23,10 +23,17 @@
 }
 
 .builder-bar-tile {
-    @apply bg-gradient-to-b from-cyan-600 to-lime-200 shadow-blue-400
-    shadow-xl w-full h-20 flex flex-row justify-center
+    @apply shadow-xl w-full h-20 flex flex-row justify-center
     transition-transform duration-300
     md:w-1/6
+}
+
+.builder-bar-tile-valid {
+    @apply bg-gradient-to-b from-cyan-600 to-lime-200 shadow-blue-400
+}
+
+.builder-bar-tile-invalid {
+    @apply bg-gradient-to-b from-red-600 to-amber-500 shadow-red-400
 }
 
 .builder-bar-tile:hover {

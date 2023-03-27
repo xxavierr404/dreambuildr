@@ -1,6 +1,8 @@
 package com.xxavierr404.dreambuildr.controllers;
 
 import com.xxavierr404.dreambuildr.dto.PCConfigurationDTO;
+import com.xxavierr404.dreambuildr.misc.enums.CompatibilityType;
+import com.xxavierr404.dreambuildr.misc.exceptions.ConfigurationIsIncompatibleException;
 import com.xxavierr404.dreambuildr.services.ConfigurerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +18,12 @@ public class PCConfigurationController {
     }
 
     @PostMapping("/verify")
-    public @ResponseBody String verifyConfiguration(@RequestBody PCConfigurationDTO configurationDTO) {
+    public @ResponseBody CompatibilityType verifyConfiguration(@RequestBody PCConfigurationDTO configurationDTO) {
         try {
             service.verifyConfiguration(configurationDTO);
-        } catch (RuntimeException e) {
-            return e.getMessage();
+        } catch (ConfigurationIsIncompatibleException e) {
+            return e.getError();
         }
-        return "Configuration is compatible";
+        return CompatibilityType.OK;
     }
 }
