@@ -19,6 +19,8 @@ public class SecurityConfig {
                 .cors()
                 .disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/utils/pc-configuration/verify")
+                .permitAll()
                 .requestMatchers(HttpMethod.GET, "/catalogue/**")
                 .permitAll()
                 .anyRequest()
