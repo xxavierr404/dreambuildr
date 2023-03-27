@@ -1,17 +1,17 @@
-export default class Item {
-    private readonly name: string;
-    private readonly price: number;
+export default abstract class Item {
+    private readonly _name: string;
+    private readonly _price: number;
 
-    public constructor(name: string, price: number) {
-        this.name = name;
-        this.price = price;
+    protected constructor(name: string, price: number) {
+        this._name = name;
+        this._price = price;
     }
 
-    public getName() : string {
-        return this.name;
+    get name(): string {
+        return this._name;
     }
 
-    public getPrice() : number {
-        return this.price;
+    get price(): number {
+        return this._price;
     }
 }

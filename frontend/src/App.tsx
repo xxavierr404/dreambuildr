@@ -9,25 +9,59 @@ import PowerUnit from "./types/pcComponents/PowerUnit";
 import RAM from "./types/pcComponents/RAM";
 import Videocard from "./types/pcComponents/Videocard";
 import ConfigAnalysisResultBlock from "./components/ConfigAnalysisResultBlock";
+import {ConfigurationDTO} from "./types/ConfigurationDTO";
+import {Configuration} from "./types/Configuration";
+import getItem from "./utils/GetItem";
+import {Dispatch, useEffect, useState} from "react";
+
+function loadConfiguration(configDTO: ConfigurationDTO, config: Configuration, setConfig: Dispatch<any>) {
+    getItem(configDTO.cpuId, 'cpu')
+        .then((value) => setConfig({...config, cpu: value as CPU}));
+    getItem(configDTO.motherboardId, 'motherboard')
+        .then((value) => setConfig({...config, motherboard: value as Motherboard}));
+    getItem(configDTO.driveId, 'drive')
+        .then((value) => setConfig({...config, drive: value as Drive}));
+    getItem(configDTO.ramId, 'ram')
+        .then((value) => setConfig({...config, ram: value as RAM}));
+    getItem(configDTO.powerUnitId, 'powerunit')
+        .then((value) => setConfig({...config, powerUnit: value as PowerUnit}));
+    getItem(configDTO.videocardId, 'videocard')
+        .then((value) => setConfig({...config, videocard: value as Videocard}));
+}
 
 function App() {
-    let cpu: CPU = new CPU("AMD Ryzen 5 3600", 6000);
-    let drive: Drive = new Drive("WD Blue 500 GB", 2000);
-    let motherboard: Motherboard = new Motherboard("Gigabyte B450H", 8000);
-    let powerUnit: PowerUnit = new PowerUnit("Aerocool VX Ace 550", 3000);
-    let ram: RAM = new RAM("Kingston Fury Beast 16GB", 5000);
-    let videocard: Videocard = new Videocard("Palit Geforce GTX 1060", 10000);
+    let [config, setConfig] = useState({
+        cpu: null,
+        motherboard: null,
+        drive: null,
+        ram: null,
+        powerUnit: null,
+        videocard: null,
+    });
+
+    let configDTO: ConfigurationDTO = {
+        motherboardId: BigInt(2),
+        driveId: BigInt(1),
+        cpuId: BigInt(1),
+        ramId: BigInt(1),
+        powerUnitId: BigInt(1),
+        videocardId: BigInt(1),
+    }
+
+    useEffect(() => {
+        loadConfiguration(configDTO, config, setConfig);
+    }, []);
 
   return (
     <div className="App">
         <header className="header-flex accent-gradient title-text">dreambuildr</header>
         <ComponentBar></ComponentBar>
-        <ConfigurerGrid cpu={cpu}
-                        motherboard={motherboard}
-                        ram={ram}
-                        drive={drive}
-                        powerUnit={powerUnit}
-                        videocard={videocard}></ConfigurerGrid>
+        <ConfigurerGrid cpu={config.cpu}
+                        motherboard={config.motherboard}
+                        ram={config.ram}
+                        drive={config.drive}
+                        powerUnit={config.powerUnit}
+                        videocard={config.videocard}></ConfigurerGrid>
         <ConfigAnalysisResultBlock></ConfigAnalysisResultBlock>
     </div>
   );

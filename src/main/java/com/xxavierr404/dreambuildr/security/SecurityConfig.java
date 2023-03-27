@@ -17,7 +17,7 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .cors()
-                .disable()
+                .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/utils/pc-configuration/verify")
                 .permitAll()

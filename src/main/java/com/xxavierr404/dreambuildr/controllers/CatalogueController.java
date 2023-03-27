@@ -13,6 +13,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/catalogue")
+@CrossOrigin
 public class CatalogueController {
     /**
      * Поле - каталог служб

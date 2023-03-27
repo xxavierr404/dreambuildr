@@ -7,17 +7,17 @@ const ConfigurerGrid = (props: Configuration) => {
             <div className="config-grid-column">
                 <div className="config-grid-component-text">
                     <p>Your CPU is:</p>
-                    <b>{props.cpu.getName()}</b>
+                    <b>{props.cpu?.name}</b>
                 </div>
                 <div className="config-grid-md-dummy"></div>
                 <div className="config-grid-component-text">
                     <p>Your motherboard is:</p>
-                    <b>{props.motherboard.getName()}</b>
+                    <b>{props.motherboard?.name}</b>
                 </div>
                 <div className="config-grid-md-dummy"></div>
                 <div className="config-grid-component-text">
                     <p>Your PU is:</p>
-                    <b>{props.powerUnit.getName()}</b>
+                    <b>{props.powerUnit?.name}</b>
                 </div>
             </div>
             <div className="flex items-center justify-center config-grid-md-dummy-flex">
@@ -28,17 +28,17 @@ const ConfigurerGrid = (props: Configuration) => {
                 <div className="config-grid-md-dummy"></div>
                 <div className="config-grid-component-text">
                     <p>Your RAM is:</p>
-                    <b>{props.ram.getName()}</b>
+                    <b>{props.ram?.name}</b>
                 </div>
                 <div className="config-grid-md-dummy"></div>
                 <div className="config-grid-component-text">
                     <p>Your HDD/SSD is:</p>
-                    <b>{props.drive.getName()}</b>
+                    <b>{props.drive?.name}</b>
                 </div>
                 <div className="config-grid-md-dummy"></div>
                 <div className="config-grid-component-text">
                     <p>Your videocard is:</p>
-                    <b>{props.videocard.getName()}</b>
+                    <b>{props.videocard?.name}</b>
                 </div>
             </div>
         </div>
