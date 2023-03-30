@@ -9,7 +9,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.cors.reactive.PreFlightRequestHandler;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +18,6 @@ import java.util.List;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        // TODO: 26.03.2023 Enable CSRF and CORS protection
         http
                 .csrf()
                 .disable()
