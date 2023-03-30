@@ -34,6 +34,5 @@ build/
 
 .run/
 
-src/main/docker/docker-compose.yml
 /src/main/docker/data/
 /javadoc/

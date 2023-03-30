@@ -47,7 +47,7 @@ const Main = () => {
 
 
     let configDTO: ConfigurationDTO = {
-        motherboardId: 7,
+        motherboardId: 1,
         driveId: 1,
         cpuId: 1,
         ramId: 1,
