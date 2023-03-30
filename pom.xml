@@ -11,7 +11,7 @@
 	<groupId>com.xxavierr404</groupId>
 	<artifactId>dreambuildr</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dreambuildr</name>
 	<description>Dreambuildr - PC parts shop with build helper</description>
 	<properties>

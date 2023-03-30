@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.xxavierr404.dreambuildr"},{"l":"com.xxavierr404.dreambuildr.controllers"},{"l":"com.xxavierr404.dreambuildr.misc.enums"},{"l":"com.xxavierr404.dreambuildr.models"},{"l":"com.xxavierr404.dreambuildr.repositories"},{"l":"com.xxavierr404.dreambuildr.services"}];updateSearchResults();
