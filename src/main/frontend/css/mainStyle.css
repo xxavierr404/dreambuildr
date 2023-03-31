@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 .header-flex {
-    @apply h-20 text-4xl flex items-center justify-center block
+    @apply text-4xl flex items-center justify-center
 }
 
 .title-text {
@@ -106,9 +106,40 @@
 }
 
 .catalogue-body {
-    @apply flex flex-col w-full h-screen bg-gradient-to-b from-blue-600 to-cyan-300 items-center justify-center
+    @apply flex flex-col w-full h-screen bg-gradient-to-b from-blue-600 to-cyan-300 items-center
 }
 
 .catalogue-grid {
-    @apply grid grid-cols-4 gap-4 w-5/6 h-full m-10
+    @apply grid grid-cols-4 gap-4 w-5/6 h-full
+}
+
+.centered-flex {
+    @apply flex flex-row items-center justify-center w-screen h-20
+}
+
+.styled-text {
+    @apply font-title text-3xl tracking-wider
+}
+
+.accent-gradient-bg-span {
+    @apply inline-block absolute
+    bg-gradient-to-l from-cyan-300 to-blue-400
+    relative w-full h-full
+}
+
+.appearing-bg {
+    @apply opacity-30 h-10 transition-all
+}
+
+.appearing-bg:hover {
+    @apply opacity-100 h-14
+}
+
+.category-button {
+    @apply font-title text-xl text-white relative w-full appearing-bg accent-gradient-bg-span
+}
+
+.sort-dropdown {
+    @apply bg-gradient-to-b from-cyan-300 to-blue-400 border-0 w-full h-10 text-center text-white
+    font-title font-bold
 }
