@@ -22,11 +22,7 @@ public class Videocard extends Item implements Checkable {
      */
 
     private Integer vRam;
-    /**
-     * Поле - тип видеопамяти
-     */
 
-    private RAMType vRamType;
     /**
      * Поле - частота
      */
@@ -46,22 +42,6 @@ public class Videocard extends Item implements Checkable {
      */
     public void setvRam(Integer vRam) {
         this.vRam = vRam;
-    }
-
-    /**
-     * Метод-геттер типа видеопамяти
-     * @return Тип видеопамяти
-     */
-    public RAMType getvRamType() {
-        return vRamType;
-    }
-
-    /**
-     * Метод-сеттер типа видеопамяти
-     * @param vRamType - Тип видеопамяти
-     */
-    public void setvRamType(RAMType vRamType) {
-        this.vRamType = vRamType;
     }
 
     /**

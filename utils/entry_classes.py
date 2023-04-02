@@ -15,7 +15,7 @@ class ItemEntry:
                  name_elem: bs4.PageElement,
                  price_elem: bs4.PageElement):
         self.name = name_elem.text
-        if not price_elem.text:
+        if not price_elem.text or len(price_elem.text.split()) < 2:
             self.price = 0
         else:
             self.price = math.floor(float(price_elem.text.split()[1]) * 70)
@@ -31,7 +31,7 @@ class CPUEntry(ItemEntry):
                  socket_elem: bs4.PageElement):
         super().__init__(name_elem, price_elem)
         self.socket = socket_tuple.index(socket_elem.text)
-        self.frequency = float(socket_elem.find_next('span').text.split()[1])
+        self.frequency = float(socket_elem.find_next_sibling('span').text.split()[1])
 
     def __str__(self):
         return f'{self.name};{self.price};{self.socket};{self.frequency}'
@@ -105,3 +105,40 @@ class DriveEntry(ItemEntry):
 
     def __str__(self):
         return f'{self.name};{self.price};{self.type};{self.size}'
+
+
+class PowerUnitEntry(ItemEntry):
+    watts: int
+
+    def __init__(self, name_elem: bs4.PageElement,
+                 price_elem: bs4.PageElement,
+                 voltage_elem: bs4.PageElement):
+        super().__init__(name_elem, price_elem)
+        self.watts = int(voltage_elem.text[:-1])
+
+    def __str__(self):
+        return f'{self.name};{self.price};{self.watts}'
+
+
+def get_videocard_frequency(url: str) -> int:
+    soup: bs4.BeautifulSoup = bs4.BeautifulSoup(get_page(url), 'html.parser')
+    ram_info_card: bs4.PageElement = soup.find_all(class_='card-body')[3]
+    if len(ram_info_card.findNext('dd').text.split()) < 2:
+        return 0
+    return int(ram_info_card.findNext('dd').text.split()[0])
+
+
+class VideoCardEntry(ItemEntry):
+    v_ram_size: int
+    frequency: int
+
+    def __init__(self,
+                 name_elem: bs4.PageElement,
+                 price_elem: bs4.PageElement,
+                 size_elem: bs4.PageElement):
+        super().__init__(name_elem, price_elem)
+        self.v_ram_size = int(size_elem.text.split()[0])
+        self.frequency = get_videocard_frequency(name_elem.parent['href'])
+
+    def __str__(self):
+        return f'{self.name};{self.price};{self.v_ram_size};{self.frequency}'

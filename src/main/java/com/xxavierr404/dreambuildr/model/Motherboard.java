@@ -1,6 +1,5 @@
 package com.xxavierr404.dreambuildr.model;
 
-import com.xxavierr404.dreambuildr.misc.enums.PlatformType;
 import com.xxavierr404.dreambuildr.misc.enums.RAMType;
 import com.xxavierr404.dreambuildr.misc.enums.SocketType;
 import jakarta.persistence.*;
@@ -26,10 +25,6 @@ public class Motherboard extends Item {
     private int ramSlotsCount;
     /**
      * Поле - тип платформы
-     */
-    private PlatformType platformType;
-    /**
-     * Поле - тип сокета
      */
     private SocketType socketType;
 
@@ -63,22 +58,6 @@ public class Motherboard extends Item {
      */
     public void setRamSlotsCount(int ramSlotsCount) {
         this.ramSlotsCount = ramSlotsCount;
-    }
-
-    /**
-     * Метод-геттер типа платформы
-     * @return Тип платформы
-     */
-    public PlatformType getPlatformType() {
-        return platformType;
-    }
-
-    /**
-     * Метод-сеттер типа платформы
-     * @param platformType - Тип платформы
-     */
-    public void setPlatformType(PlatformType platformType) {
-        this.platformType = platformType;
     }
 
     /**
