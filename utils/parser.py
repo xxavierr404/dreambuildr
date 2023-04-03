@@ -38,7 +38,7 @@ def get_motherboards() -> list[MotherboardEntry]:
     m_board_sockets: bs4.ResultSet = soup.find_all(class_='socket')
     m_board_prices: bs4.ResultSet = soup.find_all(class_='price')
 
-    for i in range(len(m_board_names) // 500):
+    for i in range(len(m_board_names)):
         try:
             assert m_board_sockets[i].text in socket_tuple
         except AssertionError as e:
@@ -49,10 +49,13 @@ def get_motherboards() -> list[MotherboardEntry]:
         except ValueError as e:
             continue
 
-        m_boards.append(MotherboardEntry(m_board_names[i],
-                                         m_board_prices[i],
-                                         m_board_sockets[i],
-                                         ram_info))
+        try:
+            m_boards.append(MotherboardEntry(m_board_names[i],
+                                             m_board_prices[i],
+                                             m_board_sockets[i],
+                                             ram_info))
+        except:
+            pass
 
     return m_boards
 
@@ -147,38 +150,41 @@ def get_videocards() -> list[VideoCardEntry]:
 
     for i in range(len(card_names)):
         print(f'Getting videocard #{i + 1} of {len(card_names)}')
-        cards.append(VideoCardEntry(card_names[i],
-                                    card_prices[i],
-                                    card_vram_sizes[i]))
+        try:
+            cards.append(VideoCardEntry(card_names[i],
+                                        card_prices[i],
+                                        card_vram_sizes[i]))
+        except:
+            pass
 
     return cards
 
 
 if __name__ == "__main__":
-    with open('csv/rams.csv', 'w', encoding='UTF-8', newline='\n') as f:
-        writer = _csv.writer(f)
-        writer.writerow(['name', 'price', 'frequency', 'type', 'size'])
-        writer.writerows([[ram.name, ram.price, ram.frequency, ram.type, ram.size] for ram in get_rams()])
-
-    with open('csv/cpus.csv', 'w', encoding='UTF-8', newline='\n') as f:
-        writer = _csv.writer(f)
-        writer.writerow(['name', 'price', 'frequency', 'socket'])
-        writer.writerows([[cpu.name, cpu.price, cpu.frequency, cpu.socket] for cpu in get_cpus()])
-
-    with open('csv/drives.csv', 'w', encoding='UTF-8', newline='\n') as f:
-        writer = _csv.writer(f)
-        writer.writerow(['name', 'price', 'type', 'size'])
-        writer.writerows([[drive.name, drive.price, drive.type, drive.size] for drive in get_drives()])
-
-    with open('csv/psus.csv', 'w', encoding='UTF-8', newline='\n') as f:
-        writer = _csv.writer(f)
-        writer.writerow(['name', 'price', 'voltage'])
-        writer.writerows([[psu.name, psu.price, psu.watts] for psu in get_power_units()])
-
-    with open('csv/videocards.csv', 'w', encoding='UTF-8', newline='\n') as f:
-        writer = _csv.writer(f)
-        writer.writerow(['name', 'price', 'v_ram_size', 'frequency'])
-        writer.writerows([[card.name, card.price, card.v_ram_size, card.frequency] for card in get_videocards()])
+    # with open('csv/rams.csv', 'w', encoding='UTF-8', newline='\n') as f:
+    #     writer = _csv.writer(f)
+    #     writer.writerow(['name', 'price', 'frequency', 'type', 'size'])
+    #     writer.writerows([[ram.name, ram.price, ram.frequency, ram.type, ram.size] for ram in get_rams()])
+    #
+    # with open('csv/cpus.csv', 'w', encoding='UTF-8', newline='\n') as f:
+    #     writer = _csv.writer(f)
+    #     writer.writerow(['name', 'price', 'frequency', 'socket'])
+    #     writer.writerows([[cpu.name, cpu.price, cpu.frequency, cpu.socket] for cpu in get_cpus()])
+    #
+    # with open('csv/drives.csv', 'w', encoding='UTF-8', newline='\n') as f:
+    #     writer = _csv.writer(f)
+    #     writer.writerow(['name', 'price', 'type', 'size'])
+    #     writer.writerows([[drive.name, drive.price, drive.type, drive.size] for drive in get_drives()])
+    #
+    # with open('csv/psus.csv', 'w', encoding='UTF-8', newline='\n') as f:
+    #     writer = _csv.writer(f)
+    #     writer.writerow(['name', 'price', 'voltage'])
+    #     writer.writerows([[psu.name, psu.price, psu.watts] for psu in get_power_units()])
+    #
+    # with open('csv/videocards.csv', 'w', encoding='UTF-8', newline='\n') as f:
+    #     writer = _csv.writer(f)
+    #     writer.writerow(['name', 'price', 'v_ram_size', 'frequency'])
+    #     writer.writerows([[card.name, card.price, card.v_ram_size, card.frequency] for card in get_videocards()])
 
     with open('csv/motherboards.csv', 'w', encoding='UTF-8', newline='\n') as f:
         writer = _csv.writer(f)
