@@ -139,10 +139,10 @@ Toshiba P300 4 TB,0,2,4000
 Toshiba P300 6 TB,0,2,6000
 Toshiba P300 HDWD120EZSTA 2TB 64MB,0,2,2000
 Toshiba P300 HDWD130EZSTA 3TB 64MB,0,2,3000
-"Toshiba SATA 3G, MQ01ABD100",3849,2,1000
-"Toshiba SATA 6G, DT01ACA200, 2 TB",3097,2,2000
-"Toshiba SATA 6G, DT01ACA300, 3 TB",6299,2,3000
-"Toshiba SATA 6G, MD04ACA400",11059,2,4000
+Toshiba SATA 3G MQ01ABD100,3849,2,1000
+Toshiba SATA 6G DT01ACA200 2 TB,3097,2,2000
+Toshiba SATA 6G DT01ACA300 3 TB,6299,2,3000
+Toshiba SATA 6G MD04ACA400,11059,2,4000
 Toshiba Surveillance Hard Drive MD03ACA200V 2TB 64MB,0,2,2000
 Toshiba Surveillance Hard Drive MD03ACA300V 3TB 64MB,0,2,3000
 Toshiba Surveillance Hard Drive MD03ACA400V 4TB 64MB,0,2,4000
@@ -151,8 +151,8 @@ Toshiba X300 HDWE150EZSTA 5TB 128MB,0,2,5000
 Toshiba X300 HDWE160EZSTA 6TB 128MB,1694,2,6000
 Toshiba X300 HDWF180EZSTA 8TB 128MB,0,2,8000
 Toshiba X300 HDWF180UZSVA 8TB 128MB Bulk,0,2,8000
-"Toshiba X300 SATA 6G, 4 TB",0,2,4000
-"Toshiba X300 SATA 6G, 6 TB",0,2,6000
+Toshiba X300 SATA 6G 4 TB,0,2,4000
+Toshiba X300 SATA 6G 6 TB,0,2,6000
 WD AV-GP WD10EURX,2131,2,1000
 WD AV-GP WD20EURX,5502,2,2000
 WD AV-GP WD30EURX,0,2,3000
@@ -185,7 +185,7 @@ Western Blue Mobile 1 TB,2932,2,1000
 Western Blue Mobile 2 TB,5809,2,2000
 Western Digital Black 1 TB,3499,2,1000
 Western Digital Black 2 TB,7349,2,2000
-"Western Digital Black 2,5 Zoll",5733,2,1000
+Western Digital Black 2.5 Zoll,5733,2,1000
 Western Digital Black 4 TB,9099,2,4000
 Western Digital Black 6 TB,12005,2,6000
 Western Digital Blue,3984,2,6000
@@ -193,7 +193,7 @@ Western Digital Blue 1 TB,2799,2,1000
 Western Digital Blue 1 TB,3149,2,1000
 Western Digital Blue 2 TB,4199,2,2000
 Western Digital Blue 2 TB,4202,2,2000
-"Western Digital Blue 2,5 Zoll",4059,2,1000
+Western Digital Blue 2.5 Zoll,4059,2,1000
 Western Digital Blue 3 TB,4899,2,3000
 Western Digital Blue 4 TB,7139,2,4000
 Western Digital Blue 6 TB,6999,2,6000
@@ -206,10 +206,10 @@ Western Digital Gold 2 TB,7699,2,2000
 Western Digital Gold 4 TB,10499,2,4000
 Western Digital Gold 6 TB,13649,2,6000
 Western Digital Gold 8 TB,14699,2,8000
-"Western Digital Gold, Intellipower",23379,2,8000
-"Western Digital Gold, Intellipower",27859,2,10000
+Western Digital Gold Intellipower,23379,2,8000
+Western Digital Gold Intellipower,27859,2,10000
 Western Digital Purple 8 TB,12879,2,8000
-"Western Digital Purple, Intellipower",18899,2,10000
+Western Digital Purple Intellipower,18899,2,10000
 Western Digital RE,19249,2,2000
 Western Digital Red 1 TB,3499,2,1000
 Western Digital Red 1 TB,4829,2,1000
@@ -225,8 +225,6 @@ Western Digital Red 4 TB,4619,2,4000
 Western Digital Red 4 TB,6579,2,4000
 Western Digital Red 6 TB,6999,2,6000
 Western Digital Red 8 TB,13859,2,8000
-"Western Digital Red Plus
- 8 TB",10499,2,8000
 Western Digital Red Plus 10 TB,13299,2,10000
 Western Digital Red Plus 12 TB,15399,2,12000
 Western Digital Red Plus 14 TB,18199,2,14000
@@ -245,7 +243,7 @@ Western Digital Red Pro 2 TB,5599,2,2000
 Western Digital Red Pro 4 TB,8749,2,4000
 Western Digital Red Pro 6 TB,11899,2,6000
 Western Digital Red Pro 8 TB,14349,2,8000
-"Western Digital Red, Intellipower",10849,2,6000
+Western Digital Red Intellipower,10849,2,6000
 Western Digital SE,27999,2,5000
 Crucial P2 1000 GB,5039,0,1000
 ADATA XPG SX8200 Pro Series 2000 GB,14349,0,2000

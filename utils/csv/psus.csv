@@ -1,5 +1,5 @@
 name,price,voltage
-"Seasonic Core GM 80 Plus Gold, semi-modular",6649,650
+Seasonic Core GM 80 Plus Gold semi-modular,6649,650
 Aerocool Project 7,0,750
 Aerocool Project 7,0,650
 be quiet! Dark Power Pro P11 modular,0,750
@@ -89,7 +89,7 @@ Seasonic Focus GX 80 Plus Gold,8399,550
 Seasonic Focus GX 80 Plus Gold,9099,650
 Seasonic Focus GX 80 PLUS Gold,11199,850
 Seasonic Focus PX 80 Plus Platinum 750 Watt,10430,750
-"Seasonic P-Series, Fanless 80 PLUS Platinum",8197,400
+Seasonic P-Series Fanless 80 PLUS Platinum,8197,400
 Seasonic PRIME 650 GOLD,7345,650
 Seasonic PRIME 750 W Platinum,10493,750
 Seasonic Prime PX 80 PLUS Platinum,0,650
@@ -101,7 +101,7 @@ Silverstone SST-SX600-G Strider Gold Series,8549,600
 Silverstone SST-SX800-LTI SFX-L 80 PLUS Titanium,15259,800
 Super Flower Golden Green HX,0,450
 Super Flower Golden Green HX,0,550
-"Super Flower Leadex 80 PLUS Platinum, black",0,650
+Super Flower Leadex 80 PLUS Platinum black,0,650
 Super Flower Leadex II,0,750
 Super Flower Leadex II,0,650
 Super Flower Leadex II,0,750
@@ -144,8 +144,8 @@ Aerocool Xpredator 700,0,700
 Aerocool Xpredator 750M,0,750
 Aerocool Xpredator Gold 650GM,0,650
 Akasa,0,90
-"Akasa 80 Watt DC-DC-Wandlerplatine, 12 V",0,80
-Akasa externes für Mini-ITX Systeme 12V,0,84
+Akasa 80 Watt DC-DC-Wandlerplatine 12 V,0,80
+Akasa externes Mini-ITX Systeme 12V,0,84
 Akasa PD150-02K externes,0,150
 Antec EAG Pro 550W 80 PLUS Gold,0,550
 Antec EAG Pro 650W 80 PLUS Gold,0,650
@@ -187,8 +187,8 @@ be quiet! Dark Power Pro P11 modular,0,650
 be quiet! Dark Power Pro P11 modular,0,550
 be quiet! Power Zone,0,1000
 be quiet! Power Zone,0,850
-"be quiet! Power Zone, 80 PLUS Bronze",0,650
-"be quiet! Power Zone, 80 PLUS Bronze",0,750
+be quiet! Power Zone 80 PLUS Bronze,0,650
+be quiet! Power Zone 80 PLUS Bronze,0,750
 be quiet! Pure Power 10,0,700
 be quiet! Pure Power 10,0,600
 be quiet! Pure Power 10,0,400
@@ -226,10 +226,10 @@ be quiet! Straight Power 11,0,1000
 be quiet! Straight Power 11,0,750
 be quiet! Straight Power 11,0,650
 be quiet! Straight Power 11,0,550
-"be quiet! Straight Power 11, 80 PLUS Gold",0,450
-"be quiet! Straight Power 11, 80 PLUS Gold",0,650
-"be quiet! Straight Power 11, 80 PLUS Gold",0,550
-"be quiet! Straight Power 11, 80 PLUS Gold",9309,750
+be quiet! Straight Power 11 80 PLUS Gold,0,450
+be quiet! Straight Power 11 80 PLUS Gold,0,650
+be quiet! Straight Power 11 80 PLUS Gold,0,550
+be quiet! Straight Power 11 80 PLUS Gold,9309,750
 be quiet! System Power 8,0,600
 be quiet! System Power 8,0,400
 be quiet! System Power 8,0,500
@@ -300,8 +300,8 @@ Chieftec Smart Serie SFX-450BS,0,450
 Chieftec Smart Serie SFX-500GD-C,0,500
 Chieftec Smart Series TFX 250P 80 PLUS Bronze,0,250
 Cooler Master MasterWatt,0,550
-"Cooler Master MasterWatt, 80 PLUS-Bronze",0,750
-"Cooler Master MasterWatt, 80 PLUS-Bronze",0,650
+Cooler Master MasterWatt 80 PLUS-Bronze,0,750
+Cooler Master MasterWatt 80 PLUS-Bronze,0,650
 Corsair AX1000 High Performance,0,1000
 Corsair AX1500i Digital ATX Power Supply,31499,1500
 Corsair AX760i Digital ATX Power Supply,16099,760
@@ -541,8 +541,8 @@ IN WIN Power Man IP-P1K0BK7-2,0,1000
 IN WIN Power Man IP-P1K2BK7-2,0,1200
 InWin DESERT FOX Commander III 80 PLUS Gold,8298,600
 InWin IP-AD180-2 H 80 Plus Bronze,0,180
-"InWin Power Man IP-S550HQ3-2, 80 PLUS Bronze",0,550
-"InWin Power Man IP-S650HQ3-2, 80 PLUS Bronze",0,650
+InWin Power Man IP-S550HQ3-2 80 PLUS Bronze,0,550
+InWin Power Man IP-S650HQ3-2 80 PLUS Bronze,0,650
 Kolink Classic Power 80 PLUS Bronze,0,700
 Kolink Classic Power 80 PLUS Bronze,0,600
 Kolink Classic Power 80 PLUS Bronze,0,500
@@ -644,7 +644,7 @@ Seasonic G12-GC-650 Gold,0,650
 Seasonic M12II 850,6293,850
 Seasonic M12II EVO 620,5599,620
 Seasonic M12II Evo 80 PLUS Bronze,3743,520
-"Seasonic M12II Evo, AM2 80 PLUS Bronze",5599,620
+Seasonic M12II Evo AM2 80 PLUS Bronze,5599,620
 Seasonic M12II-750 EVO,0,750
 Seasonic P-Series,0,860
 Seasonic P-Series,0,520
@@ -694,13 +694,13 @@ Seasonic S12G-750,0,750
 Seasonic S12II,0,430
 Seasonic S12II 430,4268,430
 Seasonic S12II 620,5266,620
-"Seasonic S12II, GB 80 PLUS Bronze",3639,520
-"Seasonic S12II, GB 80 PLUS Bronze",3989,620
+Seasonic S12II GB 80 PLUS Bronze,3639,520
+Seasonic S12II GB 80 PLUS Bronze,3989,620
 Seasonic S12III 80 PLUS Bronze,3709,550
 Seasonic S12III 80 PLUS Bronze,4830,650
 Seasonic S12III 80 PLUS Bronze,5039,500
 Seasonic Snow Silent,10499,750
-"Seasonic SS-350ES 80 PLUS Bronze, bulk",0,350
+Seasonic SS-350ES 80 PLUS Bronze bulk,0,350
 Seasonic SS-400ES,0,400
 Seasonic X-1050,8773,1050
 Seasonic X-1250,0,1250
@@ -711,7 +711,6 @@ Seasonic X-Series,0,650
 Seasonic X-Series,7364,750
 Silentmaxx Fanless II,0,500
 Silverstone DA850-G,11059,850
-Silverstone externes für Mini-STX Systeme 19V,2799,120
 SilverStone NJ700 80 PLUS Titanium,0,700
 SilverStone SST-DA1650-G Decathalon Series 80 PLUS Gold,0,1650
 Silverstone SST-ET500-ARGB,0,500
@@ -761,7 +760,7 @@ Silverstone SST-ST55GF,0,550
 Silverstone SST-ST60F-ES230 Strider Essential Series,0,600
 Silverstone SST-ST60F-ESB Strider Essential Series Bronze,0,600
 Silverstone SST-ST60F-ESG Strider Essential Series Gold,0,600
-"Silverstone SST-ST60F-PB modular, Strider 80 PLUS Bronze",0,600
+Silverstone SST-ST60F-PB modular Strider 80 PLUS Bronze,0,600
 Silverstone SST-ST60F-TI Strider 80 PLUS Titanium modular,0,600
 SilverStone SST-ST65F-ES230 Strider Essential Series 80 PLUS,0,650
 Silverstone SST-ST65F-G Strider Gold Series,0,650
@@ -771,7 +770,7 @@ Silverstone SST-ST65F-PT Strider 80 PLUS Platinum,0,650
 Silverstone SST-ST70F-ES230 Strider Essential Series,0,700
 Silverstone SST-ST70F-ESB Strider Essential Series Bronze,0,700
 Silverstone SST-ST70F-ESG Strider Essential Series Gold,0,700
-"Silverstone SST-ST70F-PB modular, Strider 80 PLUS Bronze",0,700
+Silverstone SST-ST70F-PB modular Strider 80 PLUS Bronze,0,700
 Silverstone SST-ST70F-TI Strider 80 PLUS Titanium modular,0,700
 Silverstone SST-ST75F-GS Strider Gold Series,0,750
 Silverstone SST-ST75F-GS v 3.1 Strider,0,750
@@ -795,7 +794,7 @@ Silverstone SST-SX700-LPT v1.1 SFX-L,8775,700
 Silverstone SST-SX700-PT SFX,0,700
 SilverStone SST-SX750-G 80 PLUS Gold,0,750
 Silverstone SST-SX750-PT V.1.1 SFX,0,750
-"Silverstone SST-TX300 TFX, 80 PLUS Bronze",4829,300
+Silverstone SST-TX300 TFX 80 PLUS Bronze,4829,300
 SilverStone SST-TX500-G TFX,10438,500
 Silverstone SST-TX700-G TFX,0,700
 SilverStone ST500P,0,500
