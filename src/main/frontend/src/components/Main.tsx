@@ -12,20 +12,50 @@ import Drive from "../types/pcComponents/Drive";
 import RAM from "../types/pcComponents/RAM";
 import PowerUnit from "../types/pcComponents/PowerUnit";
 import Videocard from "../types/pcComponents/Videocard";
+import { getCookie } from 'typescript-cookie';
 
 async function loadConfiguration(configDTO: ConfigurationDTO, dispatchers: ConfigDispatchers) {
-    await getItem(configDTO.cpuId, 'cpu')
-        .then((value) => dispatchers.setCpu(value as CPU));
-    await getItem(configDTO.motherboardId, 'motherboard')
-        .then((value) => dispatchers.setMotherboard(value as Motherboard));
-    await getItem(configDTO.driveId, 'drive')
-        .then((value) => dispatchers.setDrive(value as Drive));
-    await getItem(configDTO.ramId, 'ram')
-        .then((value) => dispatchers.setRam(value as RAM));
-    await getItem(configDTO.powerUnitId, 'powerunit')
-        .then((value) => dispatchers.setPowerUnit(value as PowerUnit));
-    await getItem(configDTO.videocardId, 'videocard')
-        .then((value) => dispatchers.setVideocard(value as Videocard));
+    if (configDTO.cpuId === -1) {
+        dispatchers.setCpu({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.cpuId, 'cpu')
+            .then((value) => dispatchers.setCpu(value as CPU));
+    }
+
+    if (configDTO.motherboardId === -1) {
+        dispatchers.setMotherboard({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.motherboardId, 'motherboard')
+            .then((value) => dispatchers.setMotherboard(value as Motherboard));
+    }
+
+    if (configDTO.driveId === -1) {
+        dispatchers.setDrive({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.driveId, 'drive')
+            .then((value) => dispatchers.setDrive(value as Drive));
+    }
+
+    if (configDTO.ramId === -1) {
+        dispatchers.setRam({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.ramId, 'ram')
+            .then((value) => dispatchers.setRam(value as RAM));
+    }
+
+    if (configDTO.powerUnitId === -1) {
+        dispatchers.setPowerUnit({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.powerUnitId, 'powerunit')
+            .then((value) => dispatchers.setPowerUnit(value as PowerUnit));
+    }
+
+    if (configDTO.videocardId === -1) {
+        dispatchers.setVideocard({id: -1, name: 'Not yet selected', price: 0});
+    } else {
+        await getItem(configDTO.videocardId, 'videocard')
+            .then((value) => dispatchers.setVideocard(value as Videocard));
+    }
 }
 
 type ConfigDispatchers = {
@@ -37,6 +67,13 @@ type ConfigDispatchers = {
     setVideocard: Dispatch<any>,
 }
 
+function getId(type: string): number {
+    if (!getCookie(type)) {
+        return -1;
+    }
+    return parseInt(getCookie(type));
+}
+
 const Main = () => {
     let [cpu, setCpu] = useState(null);
     let [ram, setRam] = useState(null);
@@ -44,15 +81,16 @@ const Main = () => {
     let [drive, setDrive] = useState(null);
     let [powerUnit, setPowerUnit] = useState(null);
     let [videocard, setVideocard] = useState(null);
+    let [valid, setValid] = useState(true);
 
 
     let configDTO: ConfigurationDTO = {
-        motherboardId: 1,
-        driveId: 1,
-        cpuId: 1,
-        ramId: 1,
-        powerUnitId: 1,
-        videocardId: 1,
+        motherboardId: getId('motherboard'),
+        driveId: getId('drive'),
+        cpuId: getId('cpu'),
+        ramId: getId('ram'),
+        powerUnitId: getId('powerunit'),
+        videocardId: getId('videocard'),
     }
 
     useEffect(() => {
@@ -77,9 +115,9 @@ const Main = () => {
 
     return (
         <div>
-            <ComponentBar config={configDTO}></ComponentBar>
+            <ComponentBar config={configDTO} setValid={setValid}></ComponentBar>
             <ConfigurerGrid config={config}></ConfigurerGrid>
-            <ConfigAnalysisResultBlock></ConfigAnalysisResultBlock>
+            <ConfigAnalysisResultBlock compatible={valid}></ConfigAnalysisResultBlock>
         </div>
     );
 };

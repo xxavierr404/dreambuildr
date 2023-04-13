@@ -4,20 +4,20 @@ import {Dispatch, useEffect, useState} from "react";
 import {ConfigurationDTO} from "../types/ConfigurationDTO";
 import validatePCConfiguration from "../utils/ValidatePCConfiguration";
 
-function setValid(dispatchers: ValidatorDispatchers) {
-    dispatchers.setCpuValid(true);
-    dispatchers.setDriveValid(true);
-    dispatchers.setVideocardValid(true);
-    dispatchers.setRamValid(true);
-    dispatchers.setMotherboardValid(true);
-    dispatchers.setPowerUnitValid(true);
+function setAll(dispatchers: ValidatorDispatchers, value: boolean) {
+    dispatchers.setCpuValid(value);
+    dispatchers.setDriveValid(value);
+    dispatchers.setVideocardValid(value);
+    dispatchers.setRamValid(value);
+    dispatchers.setMotherboardValid(value);
+    dispatchers.setPowerUnitValid(value);
 }
 
 async function validate(config: ConfigurationDTO, dispatchers: ValidatorDispatchers) {
     validatePCConfiguration(config).then((value) => {
        switch (value.data) {
            case ("OK"):
-               setValid(dispatchers);
+               setAll(dispatchers, true);
                break;
            case ("CPU_SOCKET_MISMATCH"):
                dispatchers.setCpuValid(false);
@@ -28,6 +28,12 @@ async function validate(config: ConfigurationDTO, dispatchers: ValidatorDispatch
                dispatchers.setMotherboardValid(false);
                break;
            default:
+               for (let item in config) {
+                    if (config[item as keyof ConfigurationDTO] === -1) {
+                        setAll(dispatchers, false);
+                        break;
+                    }
+               }
                break;
        }
     });
@@ -42,7 +48,7 @@ type ValidatorDispatchers = {
     setVideocardValid: Dispatch<any>,
 }
 
-const ComponentBar = (props: {config: ConfigurationDTO}) => {
+const ComponentBar = (props: {config: ConfigurationDTO, setValid: Dispatch<any>}) => {
     let [cpuValid, setCpuValid] = useState(false);
     let [ramValid, setRamValid] = useState(false);
     let [driveValid, setDriveValid] = useState(false);
@@ -60,9 +66,18 @@ const ComponentBar = (props: {config: ConfigurationDTO}) => {
     }
 
     useEffect(() => {
-        setValid(dispatchers);
+        setAll(dispatchers, true);
         validate(props.config, dispatchers);
     }, []);
+
+    useEffect(() => {
+        for (let valid of [cpuValid, ramValid, driveValid, motherboardValid, powerUnitValid, videocardValid]) {
+            if (!valid) {
+                props.setValid(false);
+                break;
+            }
+        }
+    }, [cpuValid, ramValid, driveValid, motherboardValid, powerUnitValid, videocardValid]);
 
     return (
         <div className="builder-category-bar">
