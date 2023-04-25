@@ -2,16 +2,8 @@ import * as React from 'react';
 import ComponentBar from "./ComponentBar";
 import ConfigurerGrid from "./ConfigurerGrid";
 import ConfigAnalysisResultBlock from "./ConfigAnalysisResultBlock";
-import {Dispatch, useEffect, useState} from "react";
+import {useState} from "react";
 import {ConfigurationDTO} from "../types/ConfigurationDTO";
-import {Configuration} from "../types/Configuration";
-import getItem from "../utils/GetItem";
-import CPU from "../types/pcComponents/CPU";
-import Motherboard from "../types/pcComponents/Motherboard";
-import Drive from "../types/pcComponents/Drive";
-import RAM from "../types/pcComponents/RAM";
-import PowerUnit from "../types/pcComponents/PowerUnit";
-import Videocard from "../types/pcComponents/Videocard";
 import { getCookie } from 'typescript-cookie';
 
 function getId(type: string): number {

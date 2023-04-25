@@ -32,7 +32,7 @@ const CatalogueSidebar = (props: {type: string, setType: Dispatch<any>}) => {
             </button>
             <button className={getButtonState("videocard")}
                     onClick={() => props.setType("videocard")}>
-                Video cards
+                Graphic cards
             </button>
             <h3 className="font-title text-2xl font-bold tracking-widest italic">Sorting by</h3>
             <select name="sort-parameter" id="sort-parameter" className="sort-dropdown">
