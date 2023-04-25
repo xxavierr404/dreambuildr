@@ -27,7 +27,7 @@ const Catalogue = () => {
 
     useEffect(() => {
         setItems(currentCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
-    }, [pageNumber, currentCatalogue, sortType, sortOrder]);
+    }, [pageNumber, fullCatalogue, currentCatalogue, sortType, sortOrder]);
 
     useEffect(() => {
         setCurrent(fullCatalogue.sort((o1: Item, o2: Item) => {
@@ -52,7 +52,7 @@ const Catalogue = () => {
 
         setPage(0);
         setItems(currentCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
-    }, [sortType, sortOrder, type, searchText]);
+    }, [sortType, sortOrder, type, searchText, fullCatalogue]);
 
     return (
         <div className="catalogue-body">
