@@ -4,7 +4,8 @@ import {Dispatch, useState} from "react";
 const CatalogueSidebar = (props: {type: string,
     setType: Dispatch<any>,
     setSortType: Dispatch<any>,
-    setSortOrder: Dispatch<any>}) => {
+    setSortOrder: Dispatch<any>,
+    setSearchText: Dispatch<any>}) => {
 
     function getButtonState(type: string) {
         return props.type === type ? "category-button-selected" : "category-button";
@@ -54,6 +55,10 @@ const CatalogueSidebar = (props: {type: string,
                 <option value="desc">Descending</option>
             </select>
             <h3 className="font-title text-2xl font-bold tracking-widest italic">Filter properties</h3>
+            <h4 className="font-title text-xl">Search by name</h4>
+            <input type="text" placeholder="Type name here..."
+                   onChange={(e) => props.setSearchText(e.target.value)}
+                   className="sort-dropdown placeholder-white"/>
         </div>
     );
 };

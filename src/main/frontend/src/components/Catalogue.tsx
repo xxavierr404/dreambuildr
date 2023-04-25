@@ -10,8 +10,11 @@ const Catalogue = () => {
     const [pageNumber, setPage] = useState(0);
     const [type, setType] = useState("motherboard");
     const [fullCatalogue, setCatalogue] = useState([]);
+    const [currentCatalogue, setCurrent] = useState([]);
     const [sortType, setSortType] = useState("name");
     const [sortOrder, setSordOrder] = useState("asc");
+    const [searchText, setSearchText] = useState("");
+
     const pageSize: number = 9;
 
     useEffect(() => {
@@ -23,11 +26,11 @@ const Catalogue = () => {
     }, [type]);
 
     useEffect(() => {
-        setItems(fullCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
-    }, [pageNumber, fullCatalogue, sortType, sortOrder]);
+        setItems(currentCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
+    }, [pageNumber, currentCatalogue, sortType, sortOrder]);
 
     useEffect(() => {
-        setCatalogue(fullCatalogue.sort((o1: Item, o2: Item) => {
+        setCurrent(fullCatalogue.sort((o1: Item, o2: Item) => {
             if (sortType === "name") {
                 if (sortOrder === "asc") {
                     return o1.name.localeCompare(o2.name);
@@ -40,9 +43,16 @@ const Catalogue = () => {
                 return o1.price < o2.price ? 1 : -1;
             }
         }));
+
+        if (searchText.length > 0) {
+            setCurrent(fullCatalogue.filter((obj) => {
+                return obj.name.toLowerCase().includes(searchText.toLowerCase());
+            }));
+        }
+
         setPage(0);
-        setItems(fullCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
-    }, [sortType, sortOrder, type]);
+        setItems(currentCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
+    }, [sortType, sortOrder, type, searchText]);
 
     return (
         <div className="catalogue-body">
@@ -53,7 +63,8 @@ const Catalogue = () => {
                 <CatalogueSidebar type={type}
                                   setType={setType}
                                   setSortType={setSortType}
-                                  setSortOrder={setSordOrder}></CatalogueSidebar>
+                                  setSortOrder={setSordOrder}
+                                  setSearchText={setSearchText}></CatalogueSidebar>
                 <CatalogueItemsGrid items={items}
                                     type={type}></CatalogueItemsGrid>
             </div>
