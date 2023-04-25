@@ -5,6 +5,7 @@ import {ConfigurationDTO} from "../types/ConfigurationDTO";
 import validatePCConfiguration from "../utils/ValidatePCConfiguration";
 
 function setAll(dispatchers: ValidatorDispatchers, value: boolean) {
+    console.log(value);
     dispatchers.setCpuValid(value);
     dispatchers.setDriveValid(value);
     dispatchers.setVideocardValid(value);
@@ -28,6 +29,7 @@ async function validate(config: ConfigurationDTO, dispatchers: ValidatorDispatch
                dispatchers.setMotherboardValid(false);
                break;
            default:
+               console.log("ELSE");
                for (let item in config) {
                     if (config[item as keyof ConfigurationDTO] === -1) {
                         setAll(dispatchers, false);
@@ -74,9 +76,10 @@ const ComponentBar = (props: {config: ConfigurationDTO, setValid: Dispatch<any>}
         for (let valid of [cpuValid, ramValid, driveValid, motherboardValid, powerUnitValid, videocardValid]) {
             if (!valid) {
                 props.setValid(false);
-                break;
+                return;
             }
         }
+        props.setValid(true);
     }, [cpuValid, ramValid, driveValid, motherboardValid, powerUnitValid, videocardValid]);
 
     return (

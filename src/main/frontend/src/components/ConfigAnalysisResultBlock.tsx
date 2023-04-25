@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const ConfigAnalysisResultBlock = (props: {compatible: boolean}) => {
-    // TODO: Doesn't work properly - always says incompatible
+    console.log(props.compatible);
     return (
         <div className="config-analysis-result-block">
             <h3 className="config-analysis-result-title">Result</h3>

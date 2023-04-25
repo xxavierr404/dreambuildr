@@ -14,59 +14,6 @@ import PowerUnit from "../types/pcComponents/PowerUnit";
 import Videocard from "../types/pcComponents/Videocard";
 import { getCookie } from 'typescript-cookie';
 
-async function loadConfiguration(configDTO: ConfigurationDTO, dispatchers: ConfigDispatchers) {
-    if (configDTO.cpuId === -1) {
-        dispatchers.setCpu({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.cpuId, 'cpu')
-            .then((value) => dispatchers.setCpu(value as CPU));
-    }
-
-    if (configDTO.motherboardId === -1) {
-        dispatchers.setMotherboard({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.motherboardId, 'motherboard')
-            .then((value) => dispatchers.setMotherboard(value as Motherboard));
-    }
-
-    if (configDTO.driveId === -1) {
-        dispatchers.setDrive({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.driveId, 'drive')
-            .then((value) => dispatchers.setDrive(value as Drive));
-    }
-
-    if (configDTO.ramId === -1) {
-        dispatchers.setRam({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.ramId, 'ram')
-            .then((value) => dispatchers.setRam(value as RAM));
-    }
-
-    if (configDTO.powerUnitId === -1) {
-        dispatchers.setPowerUnit({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.powerUnitId, 'powerunit')
-            .then((value) => dispatchers.setPowerUnit(value as PowerUnit));
-    }
-
-    if (configDTO.videocardId === -1) {
-        dispatchers.setVideocard({id: -1, name: 'Not yet selected', price: 0});
-    } else {
-        await getItem(configDTO.videocardId, 'videocard')
-            .then((value) => dispatchers.setVideocard(value as Videocard));
-    }
-}
-
-type ConfigDispatchers = {
-    setCpu: Dispatch<any>,
-    setRam: Dispatch<any>,
-    setMotherboard: Dispatch<any>,
-    setDrive: Dispatch<any>,
-    setPowerUnit: Dispatch<any>,
-    setVideocard: Dispatch<any>,
-}
-
 function getId(type: string): number {
     if (!getCookie(type)) {
         return -1;
@@ -75,14 +22,7 @@ function getId(type: string): number {
 }
 
 const Main = () => {
-    let [cpu, setCpu] = useState(null);
-    let [ram, setRam] = useState(null);
-    let [motherboard, setMotherboard] = useState(null);
-    let [drive, setDrive] = useState(null);
-    let [powerUnit, setPowerUnit] = useState(null);
-    let [videocard, setVideocard] = useState(null);
     let [valid, setValid] = useState(true);
-
 
     let configDTO: ConfigurationDTO = {
         motherboardId: getId('motherboard'),
@@ -93,30 +33,10 @@ const Main = () => {
         videocardId: getId('videocard'),
     }
 
-    useEffect(() => {
-        loadConfiguration(configDTO, {
-            setCpu: setCpu,
-            setRam: setRam,
-            setDrive: setDrive,
-            setVideocard: setVideocard,
-            setPowerUnit: setPowerUnit,
-            setMotherboard: setMotherboard
-        });
-    }, [configDTO]);
-
-    let config: Configuration = {
-        cpu: cpu,
-        ram: ram,
-        drive: drive,
-        motherboard: motherboard,
-        powerUnit: powerUnit,
-        videocard: videocard
-    }
-
     return (
         <div>
             <ComponentBar config={configDTO} setValid={setValid}></ComponentBar>
-            <ConfigurerGrid config={config}></ConfigurerGrid>
+            <ConfigurerGrid configDTO={configDTO}></ConfigurerGrid>
             <ConfigAnalysisResultBlock compatible={valid}></ConfigAnalysisResultBlock>
         </div>
     );
