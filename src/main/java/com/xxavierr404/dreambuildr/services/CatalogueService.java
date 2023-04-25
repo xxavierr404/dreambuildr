@@ -36,14 +36,22 @@ public class CatalogueService {
         return motherboardRepository.findAllByIdBetween(start, end);
     }
 
-    public void addNewMotherboard(Motherboard motherboard) {
-        motherboardRepository.save(motherboard);
+    public List<Motherboard> getAllMotherboards() {
+        return motherboardRepository.findAll();
     }
 
     public Motherboard getMotherboard(Long id) { return motherboardRepository.findById(id).orElseThrow(); }
 
+    public void addNewMotherboard(Motherboard motherboard) {
+        motherboardRepository.save(motherboard);
+    }
+
     public List<CPU> getCPUsByIdBetween(Long start, Long end) {
         return cpuRepository.findAllByIdBetween(start, end);
+    }
+
+    public List<CPU> getAllCPUs() {
+        return cpuRepository.findAll();
     }
 
     public void addNewCPU(CPU cpu) {
@@ -56,6 +64,10 @@ public class CatalogueService {
         return ramRepository.findAllByIdBetween(start, end);
     }
 
+    public List<RAM> getAllRAMs() {
+        return ramRepository.findAll();
+    }
+
     public void addNewRAM(RAM ram) {
         ramRepository.save(ram);
     }
@@ -64,6 +76,10 @@ public class CatalogueService {
 
     public List<Drive> getDrivesByIdBetween(Long start, Long end) {
         return driveRepository.findAllByIdBetween(start, end);
+    }
+
+    public List<Drive> getAllDrives() {
+        return driveRepository.findAll();
     }
 
     public void addNewDrive(Drive drive) {
@@ -76,6 +92,10 @@ public class CatalogueService {
         return powerUnitRepository.findAllByIdBetween(start, end);
     }
 
+    public List<PowerUnit> getAllPowerUnits() {
+        return powerUnitRepository.findAll();
+    }
+
     public void addNewPowerUnit(PowerUnit powerUnit) {
         powerUnitRepository.save(powerUnit);
     }
@@ -84,6 +104,10 @@ public class CatalogueService {
 
     public List<Videocard> getVideocardsByIdBetween(Long start, Long end) {
         return videocardRepository.findAllByIdBetween(start, end);
+    }
+
+    public List<Videocard> getAllVideocards() {
+        return videocardRepository.findAll();
     }
 
     public void addNewVideocard(Videocard videocard) {

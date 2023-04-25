@@ -41,6 +41,11 @@ public class CatalogueController {
         return catalogueService.getMotherboardsByIdBetween(start, end);
     }
 
+    @GetMapping("/motherboards/getAll")
+    public List<Motherboard> getAllMotherboards() {
+        return catalogueService.getAllMotherboards();
+    }
+
     @GetMapping("/motherboards/getOne")
     public Motherboard getMotherboard(@RequestParam("id") Long id) {
         return catalogueService.getMotherboard(id);
@@ -67,6 +72,11 @@ public class CatalogueController {
     public List<CPU> getCPUs(@RequestParam("start") Long start,
                              @RequestParam("end") Long end) {
         return catalogueService.getCPUsByIdBetween(start, end);
+    }
+
+    @GetMapping("/cpus/getAll")
+    public List<CPU> getAllCpus() {
+        return catalogueService.getAllCPUs();
     }
 
     @GetMapping("/cpus/getOne")
@@ -97,6 +107,11 @@ public class CatalogueController {
         return catalogueService.getRAMsByIdBetween(start, end);
     }
 
+    @GetMapping("/rams/getAll")
+    public List<RAM> getAllRAMs() {
+        return catalogueService.getAllRAMs();
+    }
+
     @GetMapping("/rams/getOne")
     public RAM getRAM(@RequestParam("id") Long id) {
         return catalogueService.getRam(id);
@@ -123,6 +138,11 @@ public class CatalogueController {
     public List<Drive> getDrives(@RequestParam("start") Long start,
                                  @RequestParam("end") Long end) {
         return catalogueService.getDrivesByIdBetween(start, end);
+    }
+
+    @GetMapping("/drives/getAll")
+    public List<Drive> getAllDrives() {
+        return catalogueService.getAllDrives();
     }
 
     @GetMapping("/drives/getOne")
@@ -153,6 +173,11 @@ public class CatalogueController {
         return catalogueService.getPowerUnitsByIdBetween(start, end);
     }
 
+    @GetMapping("/powerunits/getAll")
+    public List<PowerUnit> getAllPowerunits() {
+        return catalogueService.getAllPowerUnits();
+    }
+
     @GetMapping("/powerunits/getOne")
     public PowerUnit getPowerUnit(@RequestParam("id") Long id) {
         return catalogueService.getPowerUnit(id);
@@ -179,6 +204,11 @@ public class CatalogueController {
     public List<Videocard> getVideocards(@RequestParam("start") Long start,
                              @RequestParam("end") Long end) {
         return catalogueService.getVideocardsByIdBetween(start, end);
+    }
+
+    @GetMapping("/videocards/getAll")
+    public List<Videocard> getAllVideocards() {
+        return catalogueService.getAllVideocards();
     }
 
     @GetMapping("/videocards/getOne")

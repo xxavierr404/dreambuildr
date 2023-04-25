@@ -1,7 +1,11 @@
 import * as React from 'react';
-import {Dispatch} from "react";
+import {Dispatch, useState} from "react";
 
-const CatalogueSidebar = (props: {type: string, setType: Dispatch<any>}) => {
+const CatalogueSidebar = (props: {type: string,
+    setType: Dispatch<any>,
+    setSortType: Dispatch<any>,
+    setSortOrder: Dispatch<any>}) => {
+
     function getButtonState(type: string) {
         return props.type === type ? "category-button-selected" : "category-button";
     }
@@ -35,11 +39,17 @@ const CatalogueSidebar = (props: {type: string, setType: Dispatch<any>}) => {
                 Graphic cards
             </button>
             <h3 className="font-title text-2xl font-bold tracking-widest italic">Sorting by</h3>
-            <select name="sort-parameter" id="sort-parameter" className="sort-dropdown">
+            <select name="sort-parameter"
+                    id="sort-parameter"
+                    className="sort-dropdown"
+                    onChange={(e) => props.setSortType(e.target.value)}>
                 <option value="name">Name</option>
                 <option value="price">Price</option>
             </select>
-            <select name="sort-order" id="sort-order" className="sort-dropdown">
+            <select name="sort-order"
+                    id="sort-order"
+                    className="sort-dropdown"
+                    onChange={(e) => props.setSortOrder(e.target.value)}>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
             </select>
