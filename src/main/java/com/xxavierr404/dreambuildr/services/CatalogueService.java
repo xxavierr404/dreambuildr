@@ -42,8 +42,8 @@ public class CatalogueService {
 
     public Motherboard getMotherboard(Long id) { return motherboardRepository.findById(id).orElseThrow(); }
 
-    public void addNewMotherboard(Motherboard motherboard) {
-        motherboardRepository.save(motherboard);
+    public Motherboard addNewMotherboard(Motherboard motherboard) {
+        return motherboardRepository.save(motherboard);
     }
 
     public List<CPU> getCPUsByIdBetween(Long start, Long end) {
@@ -54,8 +54,8 @@ public class CatalogueService {
         return cpuRepository.findAll();
     }
 
-    public void addNewCPU(CPU cpu) {
-        cpuRepository.save(cpu);
+    public CPU addNewCPU(CPU cpu) {
+        return cpuRepository.save(cpu);
     }
 
     public CPU getCPU(Long id) { return cpuRepository.findById(id).orElseThrow(); }
@@ -68,8 +68,8 @@ public class CatalogueService {
         return ramRepository.findAll();
     }
 
-    public void addNewRAM(RAM ram) {
-        ramRepository.save(ram);
+    public RAM addNewRAM(RAM ram) {
+        return ramRepository.save(ram);
     }
 
     public RAM getRam(Long id) { return ramRepository.findById(id).orElseThrow(); }
@@ -82,8 +82,8 @@ public class CatalogueService {
         return driveRepository.findAll();
     }
 
-    public void addNewDrive(Drive drive) {
-        driveRepository.save(drive);
+    public Drive addNewDrive(Drive drive) {
+        return driveRepository.save(drive);
     }
 
     public Drive getDrive(Long id) { return driveRepository.findById(id).orElseThrow(); }
@@ -96,8 +96,8 @@ public class CatalogueService {
         return powerUnitRepository.findAll();
     }
 
-    public void addNewPowerUnit(PowerUnit powerUnit) {
-        powerUnitRepository.save(powerUnit);
+    public PowerUnit addNewPowerUnit(PowerUnit powerUnit) {
+        return powerUnitRepository.save(powerUnit);
     }
 
     public PowerUnit getPowerUnit(Long id) { return powerUnitRepository.findById(id).orElseThrow(); }
@@ -110,20 +110,9 @@ public class CatalogueService {
         return videocardRepository.findAll();
     }
 
-    public void addNewVideocard(Videocard videocard) {
-        videocardRepository.save(videocard);
+    public Videocard addNewVideocard(Videocard videocard) {
+        return videocardRepository.save(videocard);
     }
 
     public Videocard getVideocard(Long id) { return videocardRepository.findById(id).orElseThrow(); }
-
-    public List<Item> getAllItems(Long start, Long end) {
-        var result = new LinkedList<Item>();
-        result.addAll(getMotherboardsByIdBetween(start, end));
-        result.addAll(getCPUsByIdBetween(start, end));
-        result.addAll(getRAMsByIdBetween(start, end));
-        result.addAll(getPowerUnitsByIdBetween(start, end));
-        result.addAll(getDrivesByIdBetween(start, end));
-        result.addAll(getVideocardsByIdBetween(start, end));
-        return result;
-    }
 }

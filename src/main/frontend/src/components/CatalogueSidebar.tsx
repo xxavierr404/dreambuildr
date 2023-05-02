@@ -1,11 +1,13 @@
 import * as React from 'react';
-import {Dispatch, useState} from "react";
+import {Dispatch} from "react";
+import {FilterDispatchers} from "./Catalogue";
 
 const CatalogueSidebar = (props: {type: string,
     setType: Dispatch<any>,
     setSortType: Dispatch<any>,
     setSortOrder: Dispatch<any>,
-    setSearchText: Dispatch<any>}) => {
+    setSearchText: Dispatch<any>,
+    filterDispatchers: FilterDispatchers}) => {
 
     function getButtonState(type: string) {
         return props.type === type ? "category-button-selected" : "category-button";
@@ -59,6 +61,28 @@ const CatalogueSidebar = (props: {type: string,
             <input type="text" placeholder="Type name here..."
                    onChange={(e) => props.setSearchText(e.target.value)}
                    className="sort-dropdown placeholder-white"/>
+            {/*<h4 className="font-title text-xl">Filter by price</h4>*/}
+            {/*<input type="number" placeholder="Type max price here..."*/}
+            {/*       onChange={(e) => props.filterDispatchers.price(parseInt(e.target.value))}*/}
+            {/*       className="sort-dropdown placeholder-white"/>*/}
+            <div>
+                {/*<select name="socket"*/}
+                {/*        id="socket"*/}
+                {/*        className="sort-dropdown"*/}
+                {/*        onChange={(e) => {*/}
+                {/*            props.filterDispatchers.socket(e.target.value);*/}
+                {/*        }*/}
+                {/*}>*/}
+                {/*    <option value="none">Socket</option>*/}
+                {/*    <option value="LGA775">LGA775</option>*/}
+                {/*    <option value="LGA1156">LGA1156</option>*/}
+                {/*    <option value="LGA1700">LGA1700</option>*/}
+                {/*    <option value="AM2">AM2</option>*/}
+                {/*    <option value="AM3">AM3</option>*/}
+                {/*    <option value="AM4">AM4</option>*/}
+                {/*    <option value="AM5">AM5</option>*/}
+                {/*</select>*/}
+            </div>
         </div>
     );
 };

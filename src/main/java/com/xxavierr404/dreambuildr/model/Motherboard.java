@@ -24,7 +24,7 @@ public class Motherboard extends Item {
      */
     private int ramSlotsCount;
     /**
-     * Поле - тип платформы
+     * Поле - тип сокета
      */
     private SocketType socketType;
 

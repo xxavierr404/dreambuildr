@@ -1,9 +1,14 @@
 import * as React from 'react';
 import CatalogueItemsGrid from "./CatalogueItemsGrid";
 import CatalogueSidebar from "./CatalogueSidebar";
-import {useEffect, useState} from "react";
+import {Dispatch, useEffect, useState} from "react";
 import LoadCatalogue from "../utils/LoadCatalogue";
 import Item from "../types/pcComponents/Item";
+
+export type FilterDispatchers = {
+    price: Dispatch<any>,
+    socket: Dispatch<any>,
+}
 
 const Catalogue = () => {
     const [items, setItems] = useState([]);
@@ -14,6 +19,15 @@ const Catalogue = () => {
     const [sortType, setSortType] = useState("name");
     const [sortOrder, setSordOrder] = useState("asc");
     const [searchText, setSearchText] = useState("");
+    const [priceLimit, setPriceLimit] = useState(0);
+
+    const [socketFilter, setSocket] = useState("none");
+
+    const filters: FilterDispatchers = {
+        price: setPriceLimit,
+        socket: setSocket,
+
+    }
 
     const pageSize: number = 9;
 
@@ -45,14 +59,24 @@ const Catalogue = () => {
         }));
 
         if (searchText.length > 0) {
-            setCurrent(fullCatalogue.filter((obj) => {
+            setCurrent(currentCatalogue.filter((obj) => {
                 return obj.name.toLowerCase().includes(searchText.toLowerCase());
             }));
+            console.log(currentCatalogue);
         }
+
+        // if (priceLimit > 0) {
+        //     console.log("filtering by price");
+        //     console.log(currentCatalogue);
+        //     setCurrent(currentCatalogue.filter((obj) => {
+        //         return obj.price <= priceLimit;
+        //     }));
+        //     console.log(currentCatalogue);
+        // }
 
         setPage(0);
         setItems(currentCatalogue.slice(pageNumber * pageSize, (pageNumber + 1) * pageSize));
-    }, [sortType, sortOrder, type, searchText, fullCatalogue]);
+    }, [sortType, sortOrder, type, searchText, fullCatalogue, priceLimit]);
 
     return (
         <div className="catalogue-body">
@@ -64,7 +88,8 @@ const Catalogue = () => {
                                   setType={setType}
                                   setSortType={setSortType}
                                   setSortOrder={setSordOrder}
-                                  setSearchText={setSearchText}></CatalogueSidebar>
+                                  setSearchText={setSearchText}
+                                  filterDispatchers={filters}/>
                 <CatalogueItemsGrid items={items}
                                     type={type}></CatalogueItemsGrid>
             </div>

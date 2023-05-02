@@ -57,9 +57,8 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/motherboards")
-    public ResponseEntity<String> addMotherboard(Motherboard board) {
-        catalogueService.addNewMotherboard(board);
-        return ResponseEntity.ok("Success");
+    public ResponseEntity<Long> addMotherboard(Motherboard board) {
+        return ResponseEntity.ok(catalogueService.addNewMotherboard(board).getId());
     }
 
     /**
@@ -90,9 +89,8 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/cpus")
-    public ResponseEntity<String> addCPU(CPU cpu) {
-        catalogueService.addNewCPU(cpu);
-        return ResponseEntity.ok("Success");
+    public ResponseEntity<Long> addCPU(CPU cpu) {
+        return ResponseEntity.ok(catalogueService.addNewCPU(cpu).getId());
     }
 
     /**
@@ -123,9 +121,8 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/rams")
-    public ResponseEntity<String> addRAM(RAM ram) {
-        catalogueService.addNewRAM(ram);
-        return ResponseEntity.ok("Success");
+    public ResponseEntity<Long> addRAM(RAM ram) {
+        return ResponseEntity.ok(catalogueService.addNewRAM(ram).getId());
     }
 
     /**
@@ -156,9 +153,8 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/drives")
-    public ResponseEntity<String> addDrive(Drive drive) {
-        catalogueService.addNewDrive(drive);
-        return ResponseEntity.ok("Success");
+    public ResponseEntity<Long> addDrive(Drive drive) {
+        return ResponseEntity.ok(catalogueService.addNewDrive(drive).getId());
     }
 
     /**
@@ -189,9 +185,8 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/powerunits")
-    public ResponseEntity<String> addPowerUnit(PowerUnit powerUnit) {
-        catalogueService.addNewPowerUnit(powerUnit);
-        return ResponseEntity.ok("Success");
+    public ResponseEntity<Long> addPowerUnit(PowerUnit powerUnit) {
+        return ResponseEntity.ok(catalogueService.addNewPowerUnit(powerUnit).getId());
     }
 
     /**
@@ -222,19 +217,7 @@ public class CatalogueController {
      * @return Сущность-ответ
      */
     @PostMapping("/videocards")
-    public ResponseEntity<String> addVideocard(Videocard videocard) {
-        catalogueService.addNewVideocard(videocard);
-        return ResponseEntity.ok("Success");
-    }
-
-    /**
-     * Обработчик GET-запроса для всего каталога
-     * @param start - Левая граница
-     * @param end - Правая граница
-     * @return Списов товаров
-     */
-    @GetMapping("/")
-    public List<Item> getCatalogue(Long start, Long end) {
-        return catalogueService.getAllItems(start, end);
+    public ResponseEntity<Long> addVideocard(Videocard videocard) {
+        return ResponseEntity.ok(catalogueService.addNewVideocard(videocard).getId());
     }
 }
