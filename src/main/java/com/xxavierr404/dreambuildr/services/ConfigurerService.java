@@ -12,7 +12,7 @@ public class ConfigurerService {
         this.catalogueService = catalogueService;
     }
 
-    private PCConfiguration buildConfigurationFromDTO(PCConfigurationDTO dto) {
+    public PCConfiguration buildConfigurationFromDTO(PCConfigurationDTO dto) {
         var configuration = new PCConfiguration();
 
         configuration.setMotherboard(catalogueService.getMotherboard(dto.getMotherboardId()));

@@ -1,6 +1,8 @@
 package com.xxavierr404.dreambuildr.dto;
 
-public class PCConfigurationDTO {
+import java.io.Serializable;
+
+public class PCConfigurationDTO implements Serializable {
     private Long motherboardId;
     private Long cpuId;
     private Long driveId;
