@@ -44,6 +44,7 @@ const Catalogue = () => {
     }, [pageNumber, fullCatalogue, currentCatalogue, sortType, sortOrder]);
 
     useEffect(() => {
+        console.log(fullCatalogue);
         setCurrent(fullCatalogue.sort((o1: Item, o2: Item) => {
             if (sortType === "name") {
                 if (sortOrder === "asc") {
@@ -62,7 +63,6 @@ const Catalogue = () => {
             setCurrent(currentCatalogue.filter((obj) => {
                 return obj.name.toLowerCase().includes(searchText.toLowerCase());
             }));
-            console.log(currentCatalogue);
         }
 
         // if (priceLimit > 0) {

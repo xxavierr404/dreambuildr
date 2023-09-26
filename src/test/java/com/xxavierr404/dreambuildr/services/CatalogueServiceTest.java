@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -76,7 +78,7 @@ public class CatalogueServiceTest {
     public void testAddNewMotherboard() {
         Motherboard motherboard = new Motherboard();
         catalogueService.addNewMotherboard(motherboard);
-        Assertions.assertNotNull(motherboard.getId());
+        Mockito.verify(motherboardRepository, times(1)).save(motherboard);
     }
 
     @Test
@@ -101,7 +103,7 @@ public class CatalogueServiceTest {
     public void testAddNewCPU() {
         CPU cpu = new CPU();
         catalogueService.addNewCPU(cpu);
-        Assertions.assertNotNull(cpu.getId());
+        Mockito.verify(cpuRepository, times(1)).save(cpu);
     }
 
     @Test
@@ -134,7 +136,7 @@ public class CatalogueServiceTest {
     public void testAddNewRAM() {
         RAM ram = new RAM();
         catalogueService.addNewRAM(ram);
-        Assertions.assertNotNull(ram.getId());
+        Mockito.verify(ramRepository, times(1)).save(ram);
     }
 
     @Test
@@ -167,7 +169,7 @@ public class CatalogueServiceTest {
     public void testAddNewDrive() {
         Drive drive = new Drive();
         catalogueService.addNewDrive(drive);
-        Assertions.assertNotNull(drive.getId());
+        Mockito.verify(driveRepository, times(1)).save(drive);
     }
 
     @Test
@@ -200,7 +202,7 @@ public class CatalogueServiceTest {
     public void testAddNewPowerUnit() {
         PowerUnit powerUnit = new PowerUnit();
         catalogueService.addNewPowerUnit(powerUnit);
-        Assertions.assertNotNull(powerUnit.getId());
+        Mockito.verify(powerUnitRepository, times(1)).save(powerUnit);
     }
 
     @Test
@@ -241,6 +243,6 @@ public class CatalogueServiceTest {
     public void testAddNewVideocard() {
         Videocard videocard = new Videocard();
         catalogueService.addNewVideocard(videocard);
-        Assertions.assertNotNull(videocard.getId());
+        Mockito.verify(videocardRepository, times(1)).save(videocard);
     }
 }
